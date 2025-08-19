@@ -6,8 +6,10 @@
     <title>Vanga Manav - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- React and ReactDOM CDN -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- Babel for JSX transformation -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <style>
       body {
@@ -319,18 +321,20 @@
                   <h2 className="text-3xl font-bold text-teal-400 mb-6 border-b-2 border-teal-600 pb-3">Contact</h2>
                   <p className="text-lg text-gray-200 mb-6">I'm always open to discussing new projects, collaborations, or opportunities. Feel free to reach out!</p>
                   <div className="flex flex-wrap justify-center gap-6">
-                    <a href="mailto:your.email@example.com" className="bg-teal-600 text-white px-7 py-3 rounded-full shadow-md hover:bg-teal-500 transition-all duration-300 transform hover:-translate-y-1 flex items-center font-semibold text-lg">
+                    {/* *** START EDITING HERE *** */}
+                    <a href="mailto:manavvanga-email@example.com" className="bg-teal-600 text-white px-7 py-3 rounded-full shadow-md hover:bg-teal-500 transition-all duration-300 transform hover:-translate-y-1 flex items-center font-semibold text-lg">
                       <MailIcon />
                       Email Me
                     </a>
-                    <a href="https://www.linkedin.com/in/your-linkedin-profile/" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-7 py-3 rounded-full shadow-md hover:bg-blue-500 transition-all duration-300 transform hover:-translate-y-1 flex items-center font-semibold text-lg">
+                    <a href="https://www.linkedin.com/in/vanga-manav-9a82721a2/-linkedin-profile/" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-7 py-3 rounded-full shadow-md hover:bg-blue-500 transition-all duration-300 transform hover:-translate-y-1 flex items-center font-semibold text-lg">
                       <LinkedinIcon />
                       LinkedIn
                     </a>
-                    <a href="https://github.com/your-github-username" target="_blank" rel="noopener noreferrer" className="bg-purple-600 text-white px-7 py-3 rounded-full shadow-md hover:bg-purple-500 transition-all duration-300 transform hover:-translate-y-1 flex items-center font-semibold text-lg">
+                    <a href="https://github.com/your-actual-github-username" target="_blank" rel="noopener noreferrer" className="bg-purple-600 text-white px-7 py-3 rounded-full shadow-md hover:bg-purple-500 transition-all duration-300 transform hover:-translate-y-1 flex items-center font-semibold text-lg">
                       <GithubIcon />
                       GitHub
                     </a>
+                    {/* *** END EDITING HERE *** */}
                   </div>
                 </section>
               </main>
