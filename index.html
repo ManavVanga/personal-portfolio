@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanga Manav - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- React and ReactDOM CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- Babel for JSX transformation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // The React App component goes here
+        const App = () => {
+          // Mock data based on the LinkedIn profile information
+          const personalData = {
+            name: "Vanga Manav",
+            title: "Associate Researcher & Product Development Scientist",
+            tagline: "Driving innovation in CRISPR, 3D Bioprinting, and Organoid Platforms",
+            profilePic: "https://placehold.co/150x150/CCE3F5/000000?text=VM", // Placeholder image
+            about: `I am a biomedical engineering professional passionate about transforming advanced research into practical, scalable solutions for human health. My expertise spans CRISPR gene editing, cell line establishment, 3D bioprinting, and organoid platform development, enabling the creation of reproducible, high-fidelity models for drug discovery, toxicity testing, and disease modeling.
+
+            I currently operate as an Associate at Bioprinting Laboratories Inc., where I lead efforts in high-throughput drug screening, assay development, and product commercialization. I have successfully optimized and scaled proprietary pillar/perfusion plate platforms from lab to market launch, ensuring quality control and reproducibility at the production scale.
+
+            I resolve problems at the intersection of science and engineering whether it's improving the predictability of preclinical testing, streamlining manufacturing processes, or integrating cutting-edge biotechnologies to meet industry and academic needs. My work has contributed to NIH-funded projects, collaborations with global biotech partners, and publications in top-tier journals such as Lab on a Chip and ACS Biomaterials Science & Engineering.
+
+            I bring value through a combination of technical mastery, operational efficiency, and cross-functional collaboration. With hands-on experience in stem cell culture, iPSC-derived organoids, immunofluorescence, ELISA, qPCR, and microscopy, I lead and drive laboratory expertise with strategic product development.
+
+            I am driven by the belief that science should not just answer questions but deliver solutions. Open to connecting with biopharma, health, and research leaders seeking to advance translational medicine, accelerate discovery, and bring meaningful innovations to market.`,
+            experience: [
+              {
+                title: "Associate Researcher",
+                company: "Bioprinting Laboratories, Inc.",
+                duration: "Jan 2024 - Present (1 yr 8 mos)",
+                location: "Dallas, Texas, United States",
+                responsibilities: [
+                  "Optimized and scaled manufacturing of proprietary pillar/perfusion plate platforms (36PillarPlate, 144PillarPlate, 384PillarPlate) for 3D bioprinting and organoid culture, enabling reproducible, high-throughput drug screening and disease modeling.",
+                  "Led quality control and validation processes, ensuring plate performance met reproducibility and reliability standards for global clients.",
+                  "Designed and validated functional assays for pillar/perfusion plate applications, including co-culturing liver cancer spheroids with immune cells to advance predictive oncology models.",
+                  "Authored and implemented SOPs for large-scale production, streamlining workflows and maintaining comprehensive QC benchmarks.",
+                  "Supported CRISPR gene editing and cell line establishment projects within broader R&D initiatives.",
+                  "Partnered with NIH-funded teams and international collaborators, contributing to peer-reviewed publications in Lab on a Chip and ACS Biomaterials Science & Engineering."
+                ]
+              },
+              {
+                title: "Assistant Researcher",
+                company: "University of North Texas",
+                duration: "Feb 2023 - Dec 2023 (11 mos)",
+                location: "Denton, Texas, United States",
+                responsibilities: [
+                  "Produced reproducible human liver organoids from iPSCs using microarray 3D bioprinting technology to improve assay predictability for drug screening.",
+                  "Optimized workflows for micro-pillar/well plates, 36Pillar/Perfusion Plates, and 384-pillar plate systems, improving operational efficiency.",
+                  "Performed phenotypic assays, immunofluorescence staining, ELISA, and qPCR to assess organoid maturity and functional characteristics.",
+                  "Provided technical assistance and on CRISPR-based experiments cell line development for collaborative projects in regenerative medicine and disease modeling.",
+                  "Pipetting, 3D Bioprinting, and 21 skills."
+                ]
+              },
+              {
+                title: "Project Intern",
+                company: "Biological E. Limited - Internship",
+                duration: "Dec 2020 - Mar 2021 (4 mos)",
+                location: "India - On-site",
+                responsibilities: [
+                  "Executed quality control testing for tetanus antitoxin and conducted detailed evaluations for COVID-19 vaccines (Corbevax).",
+                  "Pipetting, Laboratory Techniques, and 10 skills."
+                ]
+              }
+            ],
+            education: [
+              {
+                degree: "Master of Science - MS, Biomedical/Medical Engineering",
+                university: "University of North Texas",
+                duration: "Jan 2022 - Jul 2023",
+                skills: "Laboratory Techniques, Purification, and 25 skills"
+              },
+              {
+                degree: "Bachelor of Technology - BTech, Biotechnology",
+                university: "KL University",
+                duration: "2017 - 2021",
+                skills: "Laboratory Techniques, Purification, and 17 skills"
+              }
+            ],
+            certifications: [
+              { name: "DNA decoded", issuer: "Coursera", date: "Jan 2021" },
+              { name: "Industrial biotechnology", issuer: "Coursera", date: "Dec 2020" },
+              { name: "Research methodology: statistical tools for data analysis and interpretation", issuer: "Coursera (UGC)", date: "Oct 2020" },
+              { name: "Cell culture technologies", issuer: "NPTEL", date: "Apr 2020" }
+            ],
+            skills: [
+              "Good Manufacturing Practice (GMP)", "Quality Control", "Cell Culture", "ELISA", "PCR",
+              "Western Blot", "Spectrophotometry", "Chromatography", "Gene Editing", "CRISPR",
+              "Molecular Biology", "Biochemistry", "Biophysics", "Immunology", "Microscopy",
+              "Flow Cytometry", "Data Analysis", "Python", "R", "Jupyter Notebooks", "MATLAB",
+              "3D Bioprinting", "Organoid Culture", "High-throughput Screening", "Assay Development",
+              "Product Development", "Research & Development", "Project Management", "Teamwork",
+              "Communication", "Problem Solving", "Critical Thinking", "Technical Writing",
+              "Troubleshooting", "Innovation", "Experimental Design", "Data Interpretation",
+              "Cell Line Development", "Mammalian Cell Culture", "Molecular Cloning", "Protein Purification",
+              "Immunofluorescence", "Cell Viability Assays", "Drug Discovery", "Preclinical Development",
+              "Regenerative Medicine", "Tissue Engineering"
+            ],
+            publications: [
+              {
+                title: "Reproducible, Scale-Up Production of Human Liver Organoids (HLOs) on a Pillar Plate Platform via Microarray 3D Bioprinting",
+                journal: "Methods in Molecular Biology",
+                date: "Jan 17, 2025",
+                summary: "Human liver organoids (HLOs) derived from pluripotent stem cells hold potential for disease modeling and high-throughput compound screening due to their architectural and functional resemblance to human liver tissues. We present a robust protocol for the scalable production of HLOs using micro-pillar/well plates and microarray 3D bioprinting. This technology facilitates the rapid, uniform seeding of organoids onto the pillar plate, maintaining cell viability and enabling the scale-up generation of HLOs. The assay-ready pillar plate with HLOs is suitable for compound testing, as well as in situ organoid staining and analysis."
+              },
+              {
+                title: "Dynamic Culture of Bioprinted Liver Tumor Spheroids in a Pillar/Perfusion Plate for Predictive Screening of Anticancer Drugs",
+                journal: "Biotechnology and Bioengineering",
+                date: "Jan 16, 2025",
+                summary: "We describe advanced insights in three-dimensional (3D) cell culture technologies, such as cell spheroids, organoids, and 3D bioprinted tissue constructs, have significantly improved the physiological in vivo relevance to study both normal and diseased morphology and function. Here, we demonstrate a novel 3D cell culture platform, combined with 144-perfusion plate formats, 144PillarPlate, 384PillarPlate and a complementary 144-perfusion plate with perfusion wells and reservoirs (144PerfusionPlate) for dynamic 3D cell culture and predictive compound screening. To accelerate biomarker timely response, small Hep3B liver tumor spheroids suspended in alginate were printed and encapsulated on the 144PillarPlate rapidly by using microgravity large spheroids in the 144PillarPlate and bioprinted Hep3B spheroids on the 144PillarPlate were dynamic cultured with minimal manual intervention. The bioprinted Hep3B spheroids are viable and demonstrate to determine the cancer spheroids to facilitate 50% of the cell dynamic testing of anticancer drugs with decreased sensitivity."
+              },
+              {
+                title: "High-Throughput Assessment of Metabolism-Mediated Neurotoxicity by Co-Culture of Neuron-Glia Spheroids and Liver Spheroids",
+                journal: "Current Protocol",
+                date: "Oct 7, 2024",
+                summary: "We evaluate a high throughput 3D cell culture based on demonstrated in ultralow attachment well plates, reproducible, flat plates with pillar cell hydrogels has been magnetic nanoparticles. Although it is simple, reproducible, and cooperative, this potentially used for high-throughput screening, statically cultured 3D cells often suffer from a necrotic core due to limited nutrient and oxygen diffusion and waste removal and waste platform and dynamic cultured spheroids with minimal manual intervention. The bioprinted Hep3B spheroids from a liver tissue demonstrates a high-throughput 3D cell culture developed in collaboration with a pharmaceutical company. The cell culture platform is validated for neurotoxicity assessment by co-culturing neuron-glia spheroids and Hep3B spheroids from a liver tissue. These results demonstrate a robust and scalable method for drug discovery and preclinical development. "
+              },
+              {
+                title: "Statistical Optimization of Temperature, Concentration, RPM and pH for the Surface Tension of Soft Drinks by Gas Chromatography",
+                journal: "Journal of Biosurfactant by Achromobacter",
+                date: "Feb 20, 2021",
+                summary: "Achromobacter strain GSR21 plays a crucial role in bioremediation of fossil fuel contamination, bioproduction, and research leading to soil health improvement. Petroleum contamination and other chemicals in gasoline lead to environmental degradation. We applied Gas Chromatography for our findings. The study confirms a robust method for predicting and optimizing the conditions for bioremediation of gasoline."
+              },
+              {
+                title: "Optimization of parameters for efficient analysis of nucleic acid characterization by varying a cost-effective running buffers for agarose gel electrophoresis",
+                journal: "International Journal of biology research",
+                date: "Jan 20, 2020",
+                summary: "We report on an efficient approach for rapid analysis of nucleic acid characterization by varying a cost-effective running buffers for agarose gel electrophoresis. This method is crucial for forensic science and disease diagnosis. The study confirmed that optimal conditions can be achieved by using different buffers for agarose gel electrophoresis."
+              }
+            ]
+          };
+
+          return (
+            <div className="min-h-screen bg-gray-100 font-inter text-gray-800 antialiased">
+              {/* Tailwind CSS CDN script */}
+              {/* Inter Font Load */}
+              {/* Header Section */}
+              <header className="bg-gradient-to-r from-blue-600 to-indigo-700 p-8 text-white shadow-lg rounded-b-xl">
+                <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
+                  <div className="flex flex-col md:flex-row items-center text-center md:text-left">
+                    <img
+                      src={personalData.profilePic}
+                      alt="Vanga Manav"
+                      className="w-32 h-32 rounded-full border-4 border-white shadow-lg mb-4 md:mb-0 md:mr-6"
+                    />
+                    <div>
+                      <h1 className="text-4xl font-bold tracking-tight mb-2">{personalData.name}</h1>
+                      <p className="text-xl font-light opacity-90">{personalData.title}</p>
+                      <p className="text-md opacity-80 mt-1">{personalData.tagline}</p>
+                    </div>
+                  </div>
+                  <nav className="mt-6 md:mt-0">
+                    <ul className="flex flex-wrap justify-center gap-x-6 gap-y-3">
+                      <li><a href="#about" className="hover:text-blue-200 transition-colors duration-300">About</a></li>
+                      <li><a href="#experience" className="hover:text-blue-200 transition-colors duration-300">Experience</a></li>
+                      <li><a href="#education" className="hover:text-blue-200 transition-colors duration-300">Education</a></li>
+                      <li><a href="#skills" className="hover:text-blue-200 transition-colors duration-300">Skills</a></li>
+                      <li><a href="#publications" className="hover:text-blue-200 transition-colors duration-300">Publications</a></li>
+                      <li><a href="#contact" className="hover:text-blue-200 transition-colors duration-300">Contact</a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </header>
+
+              <main className="container mx-auto px-4 py-10">
+
+                {/* About Section */}
+                <section id="about" className="bg-white p-8 rounded-xl shadow-md mb-10">
+                  <h2 className="text-3xl font-semibold text-blue-700 mb-6 border-b-2 border-blue-200 pb-2">About Me</h2>
+                  <p className="text-gray-700 leading-relaxed whitespace-pre-line">{personalData.about}</p>
+                </section>
+
+                {/* Experience Section */}
+                <section id="experience" className="bg-white p-8 rounded-xl shadow-md mb-10">
+                  <h2 className="text-3xl font-semibold text-blue-700 mb-6 border-b-2 border-blue-200 pb-2">Experience</h2>
+                  {personalData.experience.map((job, index) => (
+                    <div key={index} className="mb-8 last:mb-0 p-6 border border-gray-200 rounded-lg bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                      <h3 className="text-xl font-bold text-gray-900">{job.title}</h3>
+                      <p className="text-lg text-gray-700 font-medium">{job.company} | {job.duration}</p>
+                      <p className="text-gray-600 mb-4">{job.location}</p>
+                      <ul className="list-disc list-inside text-gray-700 space-y-2">
+                        {job.responsibilities.map((res, i) => (
+                          <li key={i}>{res}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </section>
+
+                {/* Education Section */}
+                <section id="education" className="bg-white p-8 rounded-xl shadow-md mb-10">
+                  <h2 className="text-3xl font-semibold text-blue-700 mb-6 border-b-2 border-blue-200 pb-2">Education</h2>
+                  {personalData.education.map((edu, index) => (
+                    <div key={index} className="mb-6 last:mb-0 p-6 border border-gray-200 rounded-lg bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                      <h3 className="text-xl font-bold text-gray-900">{edu.degree}</h3>
+                      <p className="text-lg text-gray-700 font-medium">{edu.university}</p>
+                      <p className="text-gray-600 mb-2">{edu.duration}</p>
+                      {edu.skills && <p className="text-sm text-gray-500">Skills: {edu.skills}</p>}
+                    </div>
+                  ))}
+                </section>
+
+                {/* Skills Section */}
+                <section id="skills" className="bg-white p-8 rounded-xl shadow-md mb-10">
+                  <h2 className="text-3xl font-semibold text-blue-700 mb-6 border-b-2 border-blue-200 pb-2">Skills</h2>
+                  <div className="flex flex-wrap gap-3">
+                    {personalData.skills.map((skill, index) => (
+                      <span key={index} className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:bg-blue-200 transition-colors duration-300">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                  <h3 className="text-2xl font-semibold text-blue-700 mt-8 mb-6 border-b-2 border-blue-200 pb-2">Certifications</h3>
+                  <div className="space-y-4">
+                    {personalData.certifications.map((cert, index) => (
+                      <div key={index} className="p-4 border border-gray-200 rounded-lg bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                        <h4 className="text-lg font-semibold text-gray-900">{cert.name}</h4>
+                        <p className="text-gray-700">{cert.issuer} | <span className="text-sm text-gray-500">{cert.date}</span></p>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+
+                {/* Publications Section */}
+                <section id="publications" className="bg-white p-8 rounded-xl shadow-md mb-10">
+                  <h2 className="text-3xl font-semibold text-blue-700 mb-6 border-b-2 border-blue-200 pb-2">Publications</h2>
+                  <div className="space-y-8">
+                    {personalData.publications.map((pub, index) => (
+                      <div key={index} className="p-6 border border-gray-200 rounded-lg bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                        <h3 className="text-xl font-bold text-gray-900 mb-2">{pub.title}</h3>
+                        <p className="text-lg text-gray-700 mb-2">{pub.journal} | <span className="text-sm text-gray-500">{pub.date}</span></p>
+                        <p className="text-gray-700 leading-relaxed">{pub.summary}</p>
+                        {/* You might add a link to the publication here if available */}
+                        {/* <a href={pub.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline mt-2 inline-block">Read More</a> */}
+                      </div>
+                    ))}
+                  </div>
+                </section>
+
+                {/* Contact Section */}
+                <section id="contact" className="bg-white p-8 rounded-xl shadow-md">
+                  <h2 className="text-3xl font-semibold text-blue-700 mb-6 border-b-2 border-blue-200 pb-2">Contact</h2>
+                  <p className="text-lg text-gray-700 mb-4">I'm always open to discussing new projects, collaborations, or opportunities.</p>
+                  <div className="flex flex-wrap gap-4">
+                    {/* Replace with your actual contact details or links */}
+                    <a href="mailto:your.email@example.com" className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 flex items-center">
+                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                      Email Me
+                    </a>
+                    <a href="https://www.linkedin.com/in/your-linkedin-profile/" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 flex items-center">
+                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.338 16.338H13.67V12.16c0-.98-.018-2.247-1.373-2.247-1.375 0-1.587 1.074-1.587 2.173v4.352H7.99V7.5h2.556v1.178h.036c.355-.675 1.22-1.373 2.527-1.373 2.704 0 3.204 1.77 3.204 4.073v4.96ZM4.877 6.456c-.854 0-1.547-.693-1.547-1.547S4.023 3.362 4.877 3.362c.854 0 1.547.693 1.547 1.547s-.693 1.547-1.547 1.547ZM3.53 7.5H6.22V16.338H3.53V7.5Z" clipRule="evenodd"></path></svg>
+                      LinkedIn
+                    </a>
+                    <a href="https://github.com/your-github-username" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 flex items-center">
+                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.866 8.165 6.839 9.48.5.09.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.604-3.367-1.34-3.367-1.34-.454-1.154-1.107-1.465-1.107-1.465-.908-.62.068-.607.068-.607 1.007.07 1.532 1.03 1.532 1.03.89 1.528 2.338 1.087 2.905.833.09-.647.348-1.087.634-1.336-2.22-.252-4.555-1.11-4.555-4.943 0-1.09.39-1.983 1.03-2.682-.104-.252-.448-1.27.098-2.65S9.5 4.095 10 4.095c.502 0 1.018.156 1.492.462.544-1.38 1.498-2.4 2.602-2.65.546-1.38.202-2.4.098-2.65 0 0 0 0 0 0C16.14 1.83 17 3.55 17 5.095c0 3.833-2.335 4.691-4.555 4.943.356.308.678.918.678 1.854 0 1.336-.013 2.415-.013 2.74C16.134 18.165 20 14.418 20 10c0-5.523-4.477-10-10-10z" clipRule="evenodd"></path></svg>
+                      GitHub
+                    </a>
+                  </div>
+                </section>
+              </main>
+
+              {/* Footer */}
+              <footer className="bg-gray-800 text-white text-center p-6 mt-10 rounded-t-xl">
+                <p>&copy; {new Date().getFullYear()} Vanga Manav. All rights reserved.</p>
+                <p className="text-sm mt-2">Built with React and Tailwind CSS</p>
+              </footer>
+            </div>
+          );
+        };
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
