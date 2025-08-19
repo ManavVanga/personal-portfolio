@@ -5,25 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vanga Manav - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- React and ReactDOM CDN -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <!-- Babel for JSX transformation -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      /* Custom scrollbar for a cleaner look */
+      ::-webkit-scrollbar {
+          width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+          background: #f1f1f1;
+          border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb {
+          background: #888;
+          border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+          background: #555;
+      }
+    </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-900 antialiased">
     <div id="root"></div>
 
     <script type="text/babel">
-        // The React App component goes here
         const App = () => {
-          // Mock data based on the LinkedIn profile information
           const personalData = {
             name: "Vanga Manav",
             title: "Associate Researcher & Product Development Scientist",
             tagline: "Driving innovation in CRISPR, 3D Bioprinting, and Organoid Platforms",
-            profilePic: "https://placehold.co/150x150/CCE3F5/000000?text=VM", // Placeholder image
+            profilePic: "https://placehold.co/150x150/AEC6EB/FFFFFF?text=VM", // Updated placeholder for better contrast
             about: `I am a biomedical engineering professional passionate about transforming advanced research into practical, scalable solutions for human health. My expertise spans CRISPR gene editing, cell line establishment, 3D bioprinting, and organoid platform development, enabling the creation of reproducible, high-fidelity models for drug discovery, toxicity testing, and disease modeling.
 
             I currently operate as an Associate at Bioprinting Laboratories Inc., where I lead efforts in high-throughput drug screening, assay development, and product commercialization. I have successfully optimized and scaled proprietary pillar/perfusion plate platforms from lab to market launch, ensuring quality control and reproducibility at the production scale.
@@ -139,57 +160,69 @@
             ]
           };
 
+          // Inline SVG icons (Lucide-inspired for direct HTML use)
+          const MailIcon = () => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mail mr-2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          );
+
+          const LinkedinIcon = () => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-linkedin mr-2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          );
+
+          const GithubIcon = () => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-github mr-2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3.5 0 4-2.2 4-4v-2c0-3.2-1.2-4-3-4a5 5 0 0 0-2 1.3A3.8 3.8 0 0 0 9 3C7 3 5 5 5 9c0 3.8 2.5 4.8 4 4.8a2 2 0 0 1 2 2v4"/><line x1="12" x2="12" y1="2" y2="6"/><path d="M10 20c-5-2-5-5-5-5v-1c0-2.6.2-4.5 1-5.5"/><circle cx="12" cy="12" r="10"/></svg>
+          );
+
+
           return (
-            <div className="min-h-screen bg-gray-100 font-inter text-gray-800 antialiased">
-              {/* Tailwind CSS CDN script */}
-              {/* Inter Font Load */}
+            <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
               {/* Header Section */}
-              <header className="bg-gradient-to-r from-blue-600 to-indigo-700 p-8 text-white shadow-lg rounded-b-xl">
+              <header className="sticky top-0 z-50 bg-gradient-to-r from-blue-700 to-indigo-800 p-6 text-white shadow-lg rounded-b-xl">
                 <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
                   <div className="flex flex-col md:flex-row items-center text-center md:text-left">
                     <img
                       src={personalData.profilePic}
                       alt="Vanga Manav"
-                      className="w-32 h-32 rounded-full border-4 border-white shadow-lg mb-4 md:mb-0 md:mr-6"
+                      className="w-28 h-28 rounded-full border-4 border-white shadow-xl mb-4 md:mb-0 md:mr-6"
                     />
                     <div>
-                      <h1 className="text-4xl font-bold tracking-tight mb-2">{personalData.name}</h1>
-                      <p className="text-xl font-light opacity-90">{personalData.title}</p>
-                      <p className="text-md opacity-80 mt-1">{personalData.tagline}</p>
+                      <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight mb-1">{personalData.name}</h1>
+                      <p className="text-xl lg:text-2xl font-light opacity-95">{personalData.title}</p>
+                      <p className="text-md lg:text-lg opacity-85 mt-2">{personalData.tagline}</p>
                     </div>
                   </div>
                   <nav className="mt-6 md:mt-0">
-                    <ul className="flex flex-wrap justify-center gap-x-6 gap-y-3">
-                      <li><a href="#about" className="hover:text-blue-200 transition-colors duration-300">About</a></li>
-                      <li><a href="#experience" className="hover:text-blue-200 transition-colors duration-300">Experience</a></li>
-                      <li><a href="#education" className="hover:text-blue-200 transition-colors duration-300">Education</a></li>
-                      <li><a href="#skills" className="hover:text-blue-200 transition-colors duration-300">Skills</a></li>
-                      <li><a href="#publications" className="hover:text-blue-200 transition-colors duration-300">Publications</a></li>
-                      <li><a href="#contact" className="hover:text-blue-200 transition-colors duration-300">Contact</a></li>
+                    <ul className="flex flex-wrap justify-center gap-x-6 gap-y-3 font-medium">
+                      <li><a href="#about" className="hover:text-blue-200 transition-colors duration-300 transform hover:scale-105 inline-block">About</a></li>
+                      <li><a href="#experience" className="hover:text-blue-200 transition-colors duration-300 transform hover:scale-105 inline-block">Experience</a></li>
+                      <li><a href="#education" className="hover:text-blue-200 transition-colors duration-300 transform hover:scale-105 inline-block">Education</a></li>
+                      <li><a href="#skills" className="hover:text-blue-200 transition-colors duration-300 transform hover:scale-105 inline-block">Skills</a></li>
+                      <li><a href="#publications" className="hover:text-blue-200 transition-colors duration-300 transform hover:scale-105 inline-block">Publications</a></li>
+                      <li><a href="#contact" className="hover:text-blue-200 transition-colors duration-300 transform hover:scale-105 inline-block">Contact</a></li>
                     </ul>
                   </nav>
                 </div>
               </header>
 
-              <main className="container mx-auto px-4 py-10">
+              <main className="container mx-auto px-4 py-12 space-y-12">
 
                 {/* About Section */}
-                <section id="about" className="bg-white p-8 rounded-xl shadow-md mb-10">
-                  <h2 className="text-3xl font-semibold text-blue-700 mb-6 border-b-2 border-blue-200 pb-2">About Me</h2>
-                  <p className="text-gray-700 leading-relaxed whitespace-pre-line">{personalData.about}</p>
+                <section id="about" className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 animate-fade-in-up">
+                  <h2 className="text-3xl font-bold text-blue-800 mb-6 border-b-2 border-blue-200 pb-3">About Me</h2>
+                  <p className="text-gray-700 leading-relaxed text-lg whitespace-pre-line">{personalData.about}</p>
                 </section>
 
                 {/* Experience Section */}
-                <section id="experience" className="bg-white p-8 rounded-xl shadow-md mb-10">
-                  <h2 className="text-3xl font-semibold text-blue-700 mb-6 border-b-2 border-blue-200 pb-2">Experience</h2>
+                <section id="experience" className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 animate-fade-in-up delay-100">
+                  <h2 className="text-3xl font-bold text-blue-800 mb-6 border-b-2 border-blue-200 pb-3">Experience</h2>
                   {personalData.experience.map((job, index) => (
-                    <div key={index} className="mb-8 last:mb-0 p-6 border border-gray-200 rounded-lg bg-gray-50 hover:shadow-lg transition-shadow duration-300">
-                      <h3 className="text-xl font-bold text-gray-900">{job.title}</h3>
-                      <p className="text-lg text-gray-700 font-medium">{job.company} | {job.duration}</p>
-                      <p className="text-gray-600 mb-4">{job.location}</p>
-                      <ul className="list-disc list-inside text-gray-700 space-y-2">
+                    <div key={index} className="mb-8 last:mb-0 p-6 border border-gray-200 rounded-xl bg-gray-50 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                      <h3 className="text-xl font-extrabold text-gray-900 mb-1">{job.title}</h3>
+                      <p className="text-lg text-blue-700 font-semibold">{job.company}</p>
+                      <p className="text-gray-600 text-sm mb-2">{job.duration} | {job.location}</p>
+                      <ul className="list-disc list-inside text-gray-700 space-y-2 text-base">
                         {job.responsibilities.map((res, i) => (
-                          <li key={i}>{res}</li>
+                          <li key={i} className="leading-relaxed">{res}</li>
                         ))}
                       </ul>
                     </div>
@@ -197,71 +230,73 @@
                 </section>
 
                 {/* Education Section */}
-                <section id="education" className="bg-white p-8 rounded-xl shadow-md mb-10">
-                  <h2 className="text-3xl font-semibold text-blue-700 mb-6 border-b-2 border-blue-200 pb-2">Education</h2>
+                <section id="education" className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 animate-fade-in-up delay-200">
+                  <h2 className="text-3xl font-bold text-blue-800 mb-6 border-b-2 border-blue-200 pb-3">Education</h2>
                   {personalData.education.map((edu, index) => (
-                    <div key={index} className="mb-6 last:mb-0 p-6 border border-gray-200 rounded-lg bg-gray-50 hover:shadow-lg transition-shadow duration-300">
-                      <h3 className="text-xl font-bold text-gray-900">{edu.degree}</h3>
-                      <p className="text-lg text-gray-700 font-medium">{edu.university}</p>
-                      <p className="text-gray-600 mb-2">{edu.duration}</p>
+                    <div key={index} className="mb-6 last:mb-0 p-6 border border-gray-200 rounded-xl bg-gray-50 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                      <h3 className="text-xl font-extrabold text-gray-900 mb-1">{edu.degree}</h3>
+                      <p className="text-lg text-blue-700 font-semibold">{edu.university}</p>
+                      <p className="text-gray-600 text-sm mb-2">{edu.duration}</p>
                       {edu.skills && <p className="text-sm text-gray-500">Skills: {edu.skills}</p>}
                     </div>
                   ))}
                 </section>
 
                 {/* Skills Section */}
-                <section id="skills" className="bg-white p-8 rounded-xl shadow-md mb-10">
-                  <h2 className="text-3xl font-semibold text-blue-700 mb-6 border-b-2 border-blue-200 pb-2">Skills</h2>
+                <section id="skills" className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 animate-fade-in-up delay-300">
+                  <h2 className="text-3xl font-bold text-blue-800 mb-6 border-b-2 border-blue-200 pb-3">Skills</h2>
                   <div className="flex flex-wrap gap-3">
                     {personalData.skills.map((skill, index) => (
-                      <span key={index} className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:bg-blue-200 transition-colors duration-300">
+                      <span key={index} className="bg-blue-100 text-blue-800 px-5 py-2 rounded-full text-base font-medium shadow-sm hover:bg-blue-200 hover:text-blue-900 transition-colors duration-300 transform hover:scale-105 cursor-pointer">
                         {skill}
                       </span>
                     ))}
                   </div>
-                  <h3 className="text-2xl font-semibold text-blue-700 mt-8 mb-6 border-b-2 border-blue-200 pb-2">Certifications</h3>
-                  <div className="space-y-4">
+                  <h3 className="text-2xl font-bold text-blue-800 mt-10 mb-6 border-b-2 border-blue-200 pb-3">Certifications</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {personalData.certifications.map((cert, index) => (
-                      <div key={index} className="p-4 border border-gray-200 rounded-lg bg-gray-50 hover:shadow-lg transition-shadow duration-300">
-                        <h4 className="text-lg font-semibold text-gray-900">{cert.name}</h4>
-                        <p className="text-gray-700">{cert.issuer} | <span className="text-sm text-gray-500">{cert.date}</span></p>
+                      <div key={index} className="p-5 border border-gray-200 rounded-xl bg-gray-50 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                        <h4 className="text-lg font-semibold text-gray-900 mb-1">{cert.name}</h4>
+                        <p className="text-gray-700 text-base">{cert.issuer} | <span className="text-sm text-gray-500">{cert.date}</span></p>
                       </div>
                     ))}
                   </div>
                 </section>
 
                 {/* Publications Section */}
-                <section id="publications" className="bg-white p-8 rounded-xl shadow-md mb-10">
-                  <h2 className="text-3xl font-semibold text-blue-700 mb-6 border-b-2 border-blue-200 pb-2">Publications</h2>
+                <section id="publications" className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 animate-fade-in-up delay-400">
+                  <h2 className="text-3xl font-bold text-blue-800 mb-6 border-b-2 border-blue-200 pb-3">Publications</h2>
                   <div className="space-y-8">
                     {personalData.publications.map((pub, index) => (
-                      <div key={index} className="p-6 border border-gray-200 rounded-lg bg-gray-50 hover:shadow-lg transition-shadow duration-300">
-                        <h3 className="text-xl font-bold text-gray-900 mb-2">{pub.title}</h3>
-                        <p className="text-lg text-gray-700 mb-2">{pub.journal} | <span className="text-sm text-gray-500">{pub.date}</span></p>
-                        <p className="text-gray-700 leading-relaxed">{pub.summary}</p>
-                        {/* You might add a link to the publication here if available */}
-                        {/* <a href={pub.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline mt-2 inline-block">Read More</a> */}
+                      <div key={index} className="p-6 border border-gray-200 rounded-xl bg-gray-50 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                        <h3 className="text-xl font-extrabold text-gray-900 mb-2">{pub.title}</h3>
+                        <p className="text-lg text-blue-700 font-semibold mb-2">{pub.journal} | <span className="text-sm text-gray-500">{pub.date}</span></p>
+                        <p className="text-gray-700 leading-relaxed text-base">{pub.summary}</p>
+                        {/* Example: Add a button to read more if you have links */}
+                        {/* <a href={pub.link} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-300">
+                          Read More
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="lucide lucide-arrow-right ml-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a> */}
                       </div>
                     ))}
                   </div>
                 </section>
 
                 {/* Contact Section */}
-                <section id="contact" className="bg-white p-8 rounded-xl shadow-md">
-                  <h2 className="text-3xl font-semibold text-blue-700 mb-6 border-b-2 border-blue-200 pb-2">Contact</h2>
-                  <p className="text-lg text-gray-700 mb-4">I'm always open to discussing new projects, collaborations, or opportunities.</p>
-                  <div className="flex flex-wrap gap-4">
-                    {/* Replace with your actual contact details or links */}
-                    <a href="mailto:your.email@example.com" className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 flex items-center">
-                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                <section id="contact" className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 animate-fade-in-up delay-500">
+                  <h2 className="text-3xl font-bold text-blue-800 mb-6 border-b-2 border-blue-200 pb-3">Contact</h2>
+                  <p className="text-lg text-gray-700 mb-6">I'm always open to discussing new projects, collaborations, or opportunities. Feel free to reach out!</p>
+                  <div className="flex flex-wrap justify-center gap-6">
+                    <a href="mailto:your.email@example.com" className="bg-blue-600 text-white px-7 py-3 rounded-full shadow-md hover:bg-blue-700 transition-all duration-300 transform hover:-translate-y-1 flex items-center font-semibold text-lg">
+                      <MailIcon />
                       Email Me
                     </a>
-                    <a href="https://www.linkedin.com/in/your-linkedin-profile/" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 flex items-center">
-                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M16.338 16.338H13.67V12.16c0-.98-.018-2.247-1.373-2.247-1.375 0-1.587 1.074-1.587 2.173v4.352H7.99V7.5h2.556v1.178h.036c.355-.675 1.22-1.373 2.527-1.373 2.704 0 3.204 1.77 3.204 4.073v4.96ZM4.877 6.456c-.854 0-1.547-.693-1.547-1.547S4.023 3.362 4.877 3.362c.854 0 1.547.693 1.547 1.547s-.693 1.547-1.547 1.547ZM3.53 7.5H6.22V16.338H3.53V7.5Z" clipRule="evenodd"></path></svg>
+                    <a href="https://www.linkedin.com/in/your-linkedin-profile/" target="_blank" rel="noopener noreferrer" className="bg-gray-700 text-white px-7 py-3 rounded-full shadow-md hover:bg-gray-800 transition-all duration-300 transform hover:-translate-y-1 flex items-center font-semibold text-lg">
+                      <LinkedinIcon />
                       LinkedIn
                     </a>
-                    <a href="https://github.com/your-github-username" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 flex items-center">
-                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.866 8.165 6.839 9.48.5.09.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.604-3.367-1.34-3.367-1.34-.454-1.154-1.107-1.465-1.107-1.465-.908-.62.068-.607.068-.607 1.007.07 1.532 1.03 1.532 1.03.89 1.528 2.338 1.087 2.905.833.09-.647.348-1.087.634-1.336-2.22-.252-4.555-1.11-4.555-4.943 0-1.09.39-1.983 1.03-2.682-.104-.252-.448-1.27.098-2.65S9.5 4.095 10 4.095c.502 0 1.018.156 1.492.462.544-1.38 1.498-2.4 2.602-2.65.546-1.38.202-2.4.098-2.65 0 0 0 0 0 0C16.14 1.83 17 3.55 17 5.095c0 3.833-2.335 4.691-4.555 4.943.356.308.678.918.678 1.854 0 1.336-.013 2.415-.013 2.74C16.134 18.165 20 14.418 20 10c0-5.523-4.477-10-10-10z" clipRule="evenodd"></path></svg>
+                    <a href="https://github.com/your-github-username" target="_blank" rel="noopener noreferrer" className="bg-gray-800 text-white px-7 py-3 rounded-full shadow-md hover:bg-gray-900 transition-all duration-300 transform hover:-translate-y-1 flex items-center font-semibold text-lg">
+                      <GithubIcon />
                       GitHub
                     </a>
                   </div>
@@ -269,9 +304,9 @@
               </main>
 
               {/* Footer */}
-              <footer className="bg-gray-800 text-white text-center p-6 mt-10 rounded-t-xl">
+              <footer className="bg-gray-800 text-white text-center p-8 mt-12 rounded-t-xl shadow-inner">
                 <p>&copy; {new Date().getFullYear()} Vanga Manav. All rights reserved.</p>
-                <p className="text-sm mt-2">Built with React and Tailwind CSS</p>
+                <p className="text-sm mt-3 opacity-90">Designed & Built with React and Tailwind CSS</p>
               </footer>
             </div>
           );
