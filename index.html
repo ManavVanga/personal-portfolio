@@ -4,39 +4,43 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vanga Manav — Portfolio</title>
-  <!-- Google Fonts - Inter for modern typography (can be swapped for Open Sans if preferred) -->
+  <!-- Google Fonts - Inter for modern typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CSS CDN for utility-first styling -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome for icons (used in skills section) -->
+  <!-- Font Awesome for icons (if any are re-introduced in skills or elsewhere) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Favicon -->
+  <!-- Favicon for the browser tab -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🧪</text></svg>">
   <style>
-    /* Custom CSS variables for the light theme */
+    /* Custom CSS variables for the dark theme */
     :root{
-      --bg: #f8f9fa; /* Light background color */
-      --text: #212529; /* Dark text color */
-      --card: #ffffff; /* White card background */
-      --primary: #007bff; /* Primary blue color for accents */
-      --muted: #6c757d; /* Muted text color */
+      --bg: #0b1020; /* Dark background color */
+      --card:#0f162e; /* Card background color */
+      --muted:#9aa4b2; /* Muted text color */
+      --ring:#7c3aed; /* Accent color for rings/borders */
     }
+    /* Smooth scroll behavior for anchor links */
     html{
-      scroll-behavior:smooth;
+      scroll-behavior:smooth
     }
+    /* Apply Inter font family to the body */
     body{
-      font-family: 'Inter', sans-serif; /* Using Inter, similar to Open Sans feel */
-      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+      color: #e2e8f0; /* Light text for dark background */
       background-color: var(--bg);
     }
-    /* Simple geometric background pattern if desired, or remove */
-    .bg-pattern {
-      background-image: radial-gradient(var(--muted) 0.5px, transparent 0.5px);
-      background-size: 15px 15px;
+    /* Soft grid background pattern */
+    .bg-grid {
+      background: radial-gradient( circle at 25% 15%, rgba(124,58,237,.20), transparent 35% ),
+                  radial-gradient( circle at 85% 10%, rgba(14,165,233,.18), transparent 35% ),
+                  linear-gradient( to bottom, rgba(255,255,255,.04), rgba(255,255,255,0) 250px),
+                  repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 24px),
+                  repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 24px);
     }
-    /* Section reveal animation */
+    /* Styles for section reveal animation on scroll */
     .reveal{
       opacity:0;
       transform:translateY(12px);
@@ -48,95 +52,106 @@
     }
   </style>
 </head>
-<body class="min-h-screen bg-pattern">
-  <!-- Header with site title and main navigation -->
-  <header class="py-6 border-b border-gray-200">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <h1 class="text-4xl font-extrabold text-gray-800">Manav<span class="text-blue-600">.</span></h1>
-      <!-- Main Navigation Links -->
-      <nav class="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-2 text-md text-gray-700">
-        <a class="hover:text-blue-600 font-medium" href="#about">About</a>
-        <a class="hover:text-blue-600 font-medium" href="#experience">Experience</a>
-        <a class="hover:text-blue-600 font-medium" href="#skills">Skills</a>
-        <a class="hover:text-blue-600 font-medium" href="#publications">Publications</a>
-        <a class="hover:text-blue-600 font-medium" href="#education">Education</a>
-        <a class="hover:text-blue-600 font-medium" href="#contact">Contact</a>
-      </nav>
+<body class="min-h-screen bg-[var(--bg)] bg-grid">
+  <!-- Top Navigation Bar -->
+  <header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/5 bg-white/0 border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo/Site Title -->
+        <a href="#home" class="font-extrabold tracking-tight text-xl text-slate-100" aria-label="Manav Portfolio Home">Manav<span class="text-indigo-400">.</span></a>
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden sm:flex items-center gap-6 text-sm text-slate-300">
+          <a class="hover:text-white" href="#about">About</a>
+          <a class="hover:text-white" href="#experience">Experience</a>
+          <a class="hover:text-white" href="#skills">Skills</a>
+          <a class="hover:text-white" href="#publications">Publications</a>
+          <a class="hover:text-white" href="#education">Education</a>
+          <a class="hover:text-white" href="#contact">Contact</a>
+        </nav>
+        <!-- Call to Action Button -->
+        <a href="#contact" class="inline-flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold bg-indigo-600 hover:bg-indigo-500 shadow-lg shadow-indigo-600/30 text-white">Let’s talk</a>
+      </div>
     </div>
   </header>
 
-  <!-- Hero Section (About Me equivalent) -->
-  <section id="home" class="max-w-4xl mx-auto px-4 py-16 text-center reveal">
-    <div class="flex flex-col items-center">
-      <!-- Profile Image -->
-      <img src="Image (27).jpg-e516bfc2-6e40-4d5d-960f-086aebdd4506" alt="Vanga Manav's professional headshot" class="w-48 h-48 object-cover rounded-full ring-4 ring-blue-500 shadow-lg" />
-      <h2 class="mt-6 text-3xl sm:text-4xl font-extrabold text-gray-900">Vanga Manav</h2>
-      <p class="mt-2 text-lg text-gray-700">Associate Researcher & Product Development Scientist</p>
-      <p class="mt-1 text-sm text-gray-500">Dallas, TX • Organoids • 3D Bioprinting • CRISPR</p>
-      <p class="mt-8 max-w-2xl text-gray-600 leading-relaxed">
-        I am a biomedical engineer focused on translational platforms: iPSC‑derived organoids, 3D bioprinting, dynamic perfusion, and assay development.
-        My current work at Bioprinting Laboratories, Inc. involves scaling pillar/perfusion plate products (36/144/384 formats) and validating co‑culture oncology models under flow.
-        I am passionate about turning cutting-edge biology into reproducible, productized screening solutions.
-      </p>
-      <!-- Social Media Buttons (resembling the new style) -->
-      <div class="mt-8 flex flex-wrap justify-center gap-4">
-        <a href="mailto:manavvanga@gmail.com" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-600 text-white font-semibold shadow-md hover:bg-blue-700 transition-colors" aria-label="Email Vanga Manav">
-          <i class="fas fa-envelope"></i> Email
-        </a>
-        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/vanga-manav-9a82721a2/" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gray-200 text-gray-800 font-semibold shadow-md hover:bg-gray-300 transition-colors" aria-label="Vanga Manav LinkedIn profile">
-          <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
-        <a target="_blank" rel="noopener" href="https://github.com/your-github" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gray-200 text-gray-800 font-semibold shadow-md hover:bg-gray-300 transition-colors" aria-label="Vanga Manav GitHub profile">
-          <i class="fab fa-github"></i> GitHub
-        </a>
+  <!-- Hero Section -->
+  <section id="home" class="max-w-6xl mx-auto px-4 pt-16 pb-8">
+    <div class="grid md:grid-cols-[280px,1fr] gap-8 items-start">
+      <div class="relative">
+        <!-- Profile Image -->
+        <img src="Image (27).jpg-e516bfc2-6e40-4d5d-960f-086aebdd4506" alt="Vanga Manav's professional headshot" class="w-full aspect-square object-cover rounded-2xl ring-1 ring-white/10" />
+        <div class="absolute -bottom-3 -right-3 bg-emerald-500 text-emerald-900 font-bold text-xs px-3 py-1 rounded-full shadow">Open to collaborate</div>
+      </div>
+      <div>
+        <!-- Name and Title -->
+        <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight text-slate-100">Vanga Manav</h1>
+        <p class="mt-2 text-lg text-slate-300">Associate Researcher & Product Development Scientist</p>
+        <!-- Updated tagline from screenshot -->
+        <p class="mt-1 text-sm text-slate-400">Driving innovation in CRISPR, 3D Bioprinting, and Organoid Platforms</p>
+        <!-- Professional Summary -->
+        <p class="mt-6 max-w-3xl text-slate-200">I build high-throughput 3D cell culture and organoid platforms that turn cutting‑edge biology into reproducible, productized screening solutions. Recently: scaling pillar/perfusion plate manufacturing, co‑culture assays, and dynamic perfusion models for predictive oncology.</p>
+        <!-- Call to Action Buttons -->
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="mailto:manavvanga@gmail.com" class="rounded-xl px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/10 text-slate-100" aria-label="Email Vanga Manav">Email</a>
+          <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/vanga-manav-9a82721a2/" class="rounded-xl px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/10 text-slate-100" aria-label="Vanga Manav LinkedIn profile">LinkedIn</a>
+          <a target="_blank" rel="noopener" href="https://github.com/your-github" class="rounded-xl px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/10 text-slate-100" aria-label="Vanga Manav GitHub profile">GitHub</a>
+          <a href="./Manav_Resume.pdf" class="rounded-xl px-4 py-2 bg-indigo-600 hover:bg-indigo-500 shadow-lg shadow-indigo-600/30 text-white" download aria-label="Download Vanga Manav's Resume">Download Resume</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- About Section (General Bio and Core Skills) -->
-  <section id="about" class="max-w-4xl mx-auto px-4 py-12 reveal">
-    <h2 class="text-2xl font-extrabold text-gray-900 mb-6 text-center">About Me</h2>
-    <div class="bg-white p-8 rounded-lg shadow-md border border-gray-100">
-      <p class="text-gray-700 leading-relaxed">
-        As a biomedical engineer, my work spans from developing iPSC-derived organoids to utilizing 3D bioprinting for advanced research. My expertise includes dynamic perfusion systems and robust assay development. Currently, I am focused on enhancing the manufacturing and quality control of pillar/perfusion plate products (36/144/384 formats) at Bioprinting Laboratories, Inc. I also play a key role in validating co-culture oncology models under physiological flow conditions, contributing to more predictive research outcomes.
-      </p>
-      <ul class="mt-6 space-y-2 text-gray-700">
-        <li><span class="font-semibold text-gray-800">Core domains:</span> Organoids, 3D Bioprinting, NAMs, CRISPR</li>
-        <li><span class="font-semibold text-gray-800">Methods:</span> IF/IHC, ELISA, qPCR, imaging</li>
-        <li><span class="font-semibold text-gray-800">Tooling:</span> ImageJ</li>
+  <!-- About Section -->
+  <section id="about" class="max-w-6xl mx-auto px-4 py-12 reveal">
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="md:col-span-2 p-6 rounded-2xl bg-[var(--card)] ring-1 ring-white/10 text-slate-100">
+        <h2 class="text-xl font-bold mb-2">About</h2>
+        <p class="text-slate-300 leading-relaxed">Biomedical engineer focused on translational platforms: iPSC‑derived organoids, 3D bioprinting, dynamic perfusion, and assay development. I currently help Bioprinting Laboratories, Inc. scale pillar/perfusion plate products (36/144/384 formats) and validate co‑culture oncology models under flow.</p>
+      </div>
+      <!-- Key domains, methods, and tooling -->
+      <ul class="space-y-3 p-6 rounded-2xl bg-[var(--card)] ring-1 ring-white/10 text-slate-100">
+        <li class="text-slate-300"><span class="text-slate-400">Core domains:</span> Organoids, 3D Bioprinting, NAMs, CRISPR</li>
+        <li class="text-slate-300"><span class="text-slate-400">Methods:</span> IF/IHC, ELISA, qPCR, imaging</li>
+        <li class="text-slate-300"><span class="text-slate-400">Tooling:</span> ImageJ</li>
       </ul>
     </div>
   </section>
 
   <!-- Experience Section -->
-  <section id="experience" class="max-w-4xl mx-auto px-4 py-12 reveal">
-    <h2 class="text-2xl font-extrabold text-gray-900 mb-6 text-center">Experience</h2>
-    <div class="space-y-8">
-      <!-- Role 1: Associate Researcher -->
-      <article class="bg-white p-8 rounded-lg shadow-md border border-gray-100">
-        <h3 class="text-xl font-bold text-gray-900">Associate Researcher — Bioprinting Laboratories, Inc.</h3>
-        <p class="text-sm text-gray-500 mt-1">Jan 2024 – Present • Dallas, TX</p>
-        <ul class="mt-4 list-disc list-inside text-gray-700 space-y-2">
+  <section id="experience" class="max-w-6xl mx-auto px-4 py-12 reveal">
+    <h2 class="text-2xl font-extrabold mb-6 text-slate-100">Experience</h2>
+    <div class="space-y-6">
+      <!-- Role 1 -->
+      <article class="p-6 rounded-2xl bg-[var(--card)] ring-1 ring-white/10 text-slate-100">
+        <div class="flex flex-wrap items-baseline justify-between gap-2">
+          <h3 class="text-lg font-bold">Associate Researcher — Bioprinting Laboratories, Inc.</h3>
+          <span class="text-xs text-slate-400">Jan 2024 – Present • Dallas, TX</span>
+        </div>
+        <ul class="mt-3 list-disc list-inside text-slate-300 space-y-1">
           <li>Scaled manufacturing & QC for 36/144/384 Pillar/Perfusion plate platforms, enabling reproducible HTS.</li>
           <li>Designed co‑culture assays (Hep3B + immune cells) under perfusion for predictive oncology readouts.</li>
           <li>Wrote SOPs and instituted production‑scale QC benchmarks for external clients and collaborators.</li>
           <li>Contributed to NIH‑funded work and peer‑reviewed publications.</li>
         </ul>
       </article>
-      <!-- Role 2: Assistant Researcher -->
-      <article class="bg-white p-8 rounded-lg shadow-md border border-gray-100">
-        <h3 class="text-xl font-bold text-gray-900">Assistant Researcher — University of North Texas</h3>
-        <p class="text-sm text-gray-500 mt-1">Feb 2023 – Dec 2023 • Denton, TX</p>
-        <ul class="mt-4 list-disc list-inside text-gray-700 space-y-2">
+      <!-- Role 2 -->
+      <article class="p-6 rounded-2xl bg-[var(--card)] ring-1 ring-white/10 text-slate-100">
+        <div class="flex flex-wrap items-baseline justify-between gap-2">
+          <h3 class="text-lg font-bold">Assistant Researcher — University of North Texas</h3>
+          <span class="text-xs text-slate-400">Feb 2023 – Dec 2023 • Denton, TX</span>
+        </div>
+        <ul class="mt-3 list-disc list-inside text-slate-300 space-y-1">
           <li>Produced reproducible human liver organoids (iPSC) via microarray 3D bioprinting on pillar plates.</li>
           <li>Ran phenotypic assays, IF, ELISA, qPCR to benchmark maturity and function.</li>
         </ul>
       </article>
-      <!-- Role 3: Project Intern -->
-      <article class="bg-white p-8 rounded-lg shadow-md border border-gray-100">
-        <h3 class="text-xl font-bold text-gray-900">Project Intern — Biological E. Limited</h3>
-        <p class="text-sm text-gray-500 mt-1">Dec 2020 – Mar 2021 • India</p>
-        <ul class="mt-4 list-disc list-inside text-gray-700 space-y-2">
+      <!-- Role 3 -->
+      <article class="p-6 rounded-2xl bg-[var(--card)] ring-1 ring-white/10 text-slate-100">
+        <div class="flex flex-wrap items-baseline justify-between gap-2">
+          <h3 class="text-lg font-bold">Project Intern — Biological E. Limited</h3>
+          <span class="text-xs text-slate-400">Dec 2020 – Mar 2021 • India</span>
+        </div>
+        <ul class="mt-3 list-disc list-inside text-slate-300 space-y-1">
           <li>Executed QC testing for tetanus antitoxin and supported evaluations for Corbevax.</li>
         </ul>
       </article>
@@ -144,137 +159,97 @@
   </section>
 
   <!-- Skills Section -->
-  <section id="skills" class="max-w-4xl mx-auto px-4 py-12 reveal">
-    <h2 class="text-2xl font-extrabold text-gray-900 mb-6 text-center">Skills</h2>
-    <div class="bg-white p-8 rounded-lg shadow-md border border-gray-100 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-      <!-- Skill with Icon -->
-      <div class="flex flex-col items-center text-center">
-        <i class="fas fa-flask text-4xl text-blue-600 mb-2"></i>
-        <span class="text-gray-700 font-medium">Organoid Culture</span>
-      </div>
-      <div class="flex flex-col items-center text-center">
-        <i class="fas fa-print text-4xl text-blue-600 mb-2"></i>
-        <span class="text-gray-700 font-medium">3D Bioprinting</span>
-      </div>
-      <div class="flex flex-col items-center text-center">
-        <i class="fas fa-vials text-4xl text-blue-600 mb-2"></i>
-        <span class="text-gray-700 font-medium">Assay Development</span>
-      </div>
-      <div class="flex flex-col items-center text-center">
-        <i class="fas fa-water text-4xl text-blue-600 mb-2"></i>
-        <span class="text-gray-700 font-medium">Perfusion Systems</span>
-      </div>
-      <div class="flex flex-col items-center text-center">
-        <i class="fas fa-dna text-4xl text-blue-600 mb-2"></i>
-        <span class="text-gray-700 font-medium">qPCR</span>
-      </div>
-      <div class="flex flex-col items-center text-center">
-        <i class="fas fa-microscope text-4xl text-blue-600 mb-2"></i>
-        <span class="text-gray-700 font-medium">IF/ELISA</span>
-      </div>
-      <div class="flex flex-col items-center text-center">
-        <i class="fas fa-code text-4xl text-blue-600 mb-2"></i>
-        <span class="text-gray-700 font-medium">Python</span>
-      </div>
-      <div class="flex flex-col items-center text-center">
-        <i class="fas fa-image text-4xl text-blue-600 mb-2"></i>
-        <span class="text-gray-700 font-medium">ImageJ</span>
-      </div>
+  <section id="skills" class="max-w-6xl mx-auto px-4 py-12 reveal">
+    <h2 class="text-2xl font-extrabold mb-6 text-slate-100">Skills</h2>
+    <div class="flex flex-wrap gap-2">
+      <!-- Skill Tags -->
+      <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10 text-slate-100">Organoid Culture</span>
+      <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10 text-slate-100">3D Bioprinting</span>
+      <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10 text-slate-100">Assay Development</span>
+      <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10 text-slate-100">Perfusion Systems</span>
+      <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10 text-slate-100">qPCR</span>
+      <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10 text-slate-100">IF/ELISA</span>
+      <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10 text-slate-100">Python</span>
+      <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10 text-slate-100">ImageJ</span>
     </div>
   </section>
 
   <!-- Publications Section -->
-  <section id="publications" class="max-w-4xl mx-auto px-4 py-12 reveal">
-    <h2 class="text-2xl font-extrabold text-gray-900 mb-6 text-center">Publications</h2>
+  <section id="publications" class="max-w-6xl mx-auto px-4 py-12 reveal">
+    <h2 class="text-2xl font-extrabold mb-6 text-slate-100">Publications</h2>
     <div class="grid md:grid-cols-2 gap-6">
       <!-- Publication 1 -->
-      <article class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
-        <h3 class="font-bold text-gray-900">Reproducible, Scale‑Up Production of HLOs on a Pillar Plate Platform</h3>
-        <p class="text-sm text-gray-500 mt-1">Methods in Molecular Biology — Jan 17, 2025</p>
-        <p class="mt-2 text-gray-700">Scalable protocol using micro‑pillar/well plates and microarray bioprinting to generate uniform iPSC‑derived liver organoids for screening.</p>
+      <article class="p-6 rounded-2xl bg-[var(--card)] ring-1 ring-white/10 text-slate-100">
+        <h3 class="font-bold">Reproducible, Scale‑Up Production of HLOs on a Pillar Plate Platform</h3>
+        <p class="text-sm text-slate-400">Methods in Molecular Biology — Jan 17, 2025</p>
+        <p class="mt-2 text-slate-300">Scalable protocol using micro‑pillar/well plates and microarray bioprinting to generate uniform iPSC‑derived liver organoids for screening.</p>
       </article>
       <!-- Publication 2 -->
-      <article class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
-        <h3 class="font-bold text-gray-900">Dynamic Culture of Bioprinted Liver Tumor Spheroids under Perfusion</h3>
-        <p class="text-sm text-gray-500 mt-1">Biotechnology & Bioengineering — Jan 16, 2025</p>
-        <p class="mt-2 text-gray-700">Hep3B spheroids encapsulated in alginate on 144‑format pillar plates to study anti‑cancer responses with improved physiological relevance.</p>
+      <article class="p-6 rounded-2xl bg-[var(--card)] ring-1 ring-white/10 text-slate-100">
+        <h3 class="font-bold">Dynamic Culture of Bioprinted Liver Tumor Spheroids under Perfusion</h3>
+        <p class="text-sm text-slate-400">Biotechnology & Bioengineering — Jan 16, 2025</p>
+        <p class="mt-2 text-slate-300">Hep3B spheroids encapsulated in alginate on 144‑format pillar plates to study anti‑cancer responses with improved physiological relevance.</p>
       </article>
       <!-- Publication 3 -->
-      <article class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
-        <h3 class="font-bold text-gray-900">Metabolism‑Mediated Neurotoxicity via Neuron‑Glia & Liver Spheroid Co‑culture</h3>
-        <p class="text-sm text-gray-500 mt-1">Current Protocol — Oct 7, 2024</p>
-        <p class="mt-2 text-gray-700">High‑throughput spheroid co‑culture enabling neurotoxicity assessment with metabolic activation.</p>
+      <article class="p-6 rounded-2xl bg-[var(--card)] ring-1 ring-white/10 text-slate-100">
+        <h3 class="font-bold">Metabolism‑Mediated Neurotoxicity via Neuron‑Glia & Liver Spheroid Co‑culture</h3>
+        <p class="text-sm text-slate-400">Current Protocol — Oct 7, 2024</p>
+        <p class="mt-2 text-slate-300">High‑throughput spheroid co‑culture enabling neurotoxicity assessment with metabolic activation.</p>
       </article>
       <!-- Publication 4 -->
-      <article class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
-        <h3 class="font-bold text-gray-900">Optimization of Parameters for Nucleic Acid Characterization</h3>
-        <p class="text-sm text-gray-500 mt-1">International Journal of Biology Research — Jan 20, 2020</p>
-        <p class="mt-2 text-gray-700">Cost‑effective buffer strategies for agarose gel electrophoresis workflows.</p>
+      <article class="p-6 rounded-2xl bg-[var(--card)] ring-1 ring-white/10 text-slate-100">
+        <h3 class="font-bold">Optimization of Parameters for Nucleic Acid Characterization</h3>
+        <p class="text-sm text-slate-400">International Journal of Biology Research — Jan 20, 2020</p>
+        <p class="mt-2 text-slate-300">Cost‑effective buffer strategies for agarose gel electrophoresis workflows.</p>
       </article>
     </div>
   </section>
 
   <!-- Education Section -->
-  <section id="education" class="max-w-4xl mx-auto px-4 py-12 reveal">
-    <h2 class="text-2xl font-extrabold text-gray-900 mb-6 text-center">Education</h2>
+  <section id="education" class="max-w-6xl mx-auto px-4 py-12 reveal">
+    <h2 class="text-2xl font-extrabold mb-6 text-slate-100">Education</h2>
     <div class="grid md:grid-cols-2 gap-6">
       <!-- Master's Degree -->
-      <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
-        <h3 class="font-bold text-gray-900">M.S., Biomedical/Medical Engineering</h3>
-        <p class="text-sm text-gray-500 mt-1">University of North Texas — 2022–2023</p>
+      <div class="p-6 rounded-2xl bg-[var(--card)] ring-1 ring-white/10 text-slate-100">
+        <h3 class="font-bold">M.S., Biomedical/Medical Engineering</h3>
+        <p class="text-sm text-slate-400">University of North Texas — 2022–2023</p>
       </div>
       <!-- Bachelor's Degree -->
-      <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
-        <h3 class="font-bold text-gray-900">B.Tech, Biotechnology</h3>
-        <p class="text-sm text-gray-500 mt-1">KL University — 2017–2021</p>
+      <div class="p-6 rounded-2xl bg-[var(--card)] ring-1 ring-white/10 text-slate-100">
+        <h3 class="font-bold">B.Tech, Biotechnology</h3>
+        <p class="text-sm text-slate-400">KL University — 2017–2021</p>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="max-w-4xl mx-auto px-4 py-12 reveal">
-    <h2 class="text-2xl font-extrabold text-gray-900 mb-6 text-center">Contact Me</h2>
-    <div class="bg-white p-8 rounded-lg shadow-md border border-gray-100">
-      <p class="text-gray-700 leading-relaxed mb-6">I’m open to collaborations with biopharma and research teams working on HTS, organoids, and NAMs. Feel free to reach out using the form below or via my contact details.</p>
-
-      <!-- Contact Form Placeholder -->
-      <form class="space-y-4">
-        <div>
-          <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-          <input type="text" id="name" name="name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Your Name" />
-        </div>
-        <div>
-          <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-          <input type="email" id="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500" placeholder="your@example.com" />
-        </div>
-        <div>
-          <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-          <textarea id="message" name="message" rows="4" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Your Message"></textarea>
-        </div>
-        <button type="submit" class="w-full px-6 py-3 rounded-md bg-blue-600 text-white font-semibold shadow-md hover:bg-blue-700 transition-colors">Send Message</button>
-      </form>
-
-      <div class="mt-8 text-center">
-        <h3 class="text-lg font-bold text-gray-900 mb-3">Or Connect Directly:</h3>
-        <div class="flex flex-wrap justify-center gap-3">
-          <a href="mailto:manavvanga@gmail.com" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gray-200 text-gray-800 hover:bg-gray-300 transition-colors">
-            <i class="fas fa-envelope"></i> manavvanga@gmail.com
-          </a>
-          <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/vanga-manav-9a82721a2/" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gray-200 text-gray-800 hover:bg-gray-300 transition-colors">
-            <i class="fab fa-linkedin"></i> LinkedIn
-          </a>
-          <a target="_blank" rel="noopener" href="https://github.com/your-github" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gray-200 text-gray-800 hover:bg-gray-300 transition-colors">
-            <i class="fab fa-github"></i> GitHub
-          </a>
-        </div>
+  <section id="contact" class="max-w-6xl mx-auto px-4 py-12 reveal">
+    <div class="p-6 rounded-2xl bg-[var(--card)] ring-1 ring-white/10 text-slate-100">
+      <h2 class="text-2xl font-extrabold mb-2">Contact</h2>
+      <p class="text-slate-300">I’m open to collaborations with biopharma and research teams working on HTS, organoids, and NAMs.</p>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <!-- Gmail Link - Updated to match LinkedIn/GitHub button style -->
+        <a href="mailto:manavvanga@gmail.com" class="rounded-xl px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/10 text-slate-100 inline-flex items-center gap-2" aria-label="Email Vanga Manav">
+          <i class="fas fa-envelope"></i> Gmail
+        </a>
+        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/vanga-manav-9a82721a2/" class="rounded-xl px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/10 text-slate-100 inline-flex items-center gap-2" aria-label="Vanga Manav LinkedIn profile">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a target="_blank" rel="noopener" href="https://github.com/your-github" class="rounded-xl px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/10 text-slate-100 inline-flex items-center gap-2" aria-label="Vanga Manav GitHub profile">
+          <i class="fab fa-github"></i> GitHub
+        </a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-8 text-center text-sm text-gray-500 border-t border-gray-200 mt-12">
+  <footer class="py-10 text-center text-sm text-slate-500 border-t border-white/10">
+    <!-- Dynamic year for copyright -->
     © <span id="y"></span> Vanga Manav — Built with Tailwind CSS. Hosted on GitHub Pages.
   </footer>
+
+  <!-- Back to Top Button -->
+  <button id="toTop" class="fixed bottom-5 right-5 hidden md:inline-flex items-center justify-center w-11 h-11 rounded-full bg-indigo-600 hover:bg-indigo-500 shadow-lg shadow-indigo-600/30 text-white" aria-label="Back to top">↑</button>
 
   <script>
     // Set the current year in the footer
@@ -283,14 +258,26 @@
     // Intersection Observer for reveal-on-scroll animation
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => {
+        // If the element is intersecting the viewport, add the 'show' class
         if (e.isIntersecting) {
           e.target.classList.add('show');
         }
       });
     }, {
-      threshold: 0.14
+      threshold: 0.14 /* Trigger when 14% of the element is visible */
     });
+    // Apply observer to all elements with the 'reveal' class
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Back to top button functionality
+    const topBtn = document.getElementById('toTop');
+    topBtn.addEventListener('click', () => {
+      // Smooth scroll to the top of the page
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
   </script>
 </body>
 </html>
