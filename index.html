@@ -1,354 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vanga Manav - Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- React and ReactDOM CDN -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <!-- Babel for JSX transformation -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <style>
-      body {
-        font-family: 'Inter', sans-serif;
-        /* Subtle repeating linear gradient for textured background */
-        background: #1a202c; /* Fallback for older browsers or if gradient fails */
-        background-image: repeating-linear-gradient(
-          45deg,
-          rgba(255, 255, 255, 0.02) 0px,
-          rgba(255, 255, 255, 0.02) 2px,
-          transparent 2px,
-          transparent 4px
-        ),
-        linear-gradient(to bottom, #1a202c, #2d3748); /* Base gradient for overall darkness */
-        background-size: 8px 8px, 100% 100%; /* Adjust pattern size */
-        background-repeat: repeat, no-repeat;
-        background-attachment: fixed; /* Ensures pattern stays fixed while scrolling */
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      /* Custom scrollbar for a cleaner look */
-      ::-webkit-scrollbar {
-          width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-          background: #2d3748; /* Darker track */
-          border-radius: 10px;
-      }
-      ::-webkit-scrollbar-thumb {
-          background: #4a5568; /* Darker thumb */
-          border-radius: 10px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-          background: #5a667b;
-      }
-
-      /* Keyframe for subtle fade-in animation on sections */
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .animate-fade-in-up {
-        animation: fadeInUp 0.6s ease-out forwards;
-      }
-      /* Delay for staggered animations (Tailwind JIT might not directly support utility delays without config) */
-      .delay-100 { animation-delay: 0.1s; }
-      .delay-200 { animation-delay: 0.2s; }
-      .delay-300 { animation-delay: 0.3s; }
-      .delay-400 { animation-delay: 0.4s; }
-      .delay-500 { animation-delay: 0.5s; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vanga Manav — Portfolio</title>
+  <!-- Google Fonts - Inter for modern typography (can be swapped for Open Sans if preferred) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome for icons (used in skills section) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🧪</text></svg>">
+  <style>
+    /* Custom CSS variables for the light theme */
+    :root{
+      --bg: #f8f9fa; /* Light background color */
+      --text: #212529; /* Dark text color */
+      --card: #ffffff; /* White card background */
+      --primary: #007bff; /* Primary blue color for accents */
+      --muted: #6c757d; /* Muted text color */
+    }
+    html{
+      scroll-behavior:smooth;
+    }
+    body{
+      font-family: 'Inter', sans-serif; /* Using Inter, similar to Open Sans feel */
+      color: var(--text);
+      background-color: var(--bg);
+    }
+    /* Simple geometric background pattern if desired, or remove */
+    .bg-pattern {
+      background-image: radial-gradient(var(--muted) 0.5px, transparent 0.5px);
+      background-size: 15px 15px;
+    }
+    /* Section reveal animation */
+    .reveal{
+      opacity:0;
+      transform:translateY(12px);
+      transition:.6s ease;
+    }
+    .reveal.show{
+      opacity:1;
+      transform:none;
+    }
+  </style>
 </head>
-<body class="text-white antialiased">
-    <div id="root"></div>
+<body class="min-h-screen bg-pattern">
+  <!-- Header with site title and main navigation -->
+  <header class="py-6 border-b border-gray-200">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h1 class="text-4xl font-extrabold text-gray-800">Manav<span class="text-blue-600">.</span></h1>
+      <!-- Main Navigation Links -->
+      <nav class="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-2 text-md text-gray-700">
+        <a class="hover:text-blue-600 font-medium" href="#about">About</a>
+        <a class="hover:text-blue-600 font-medium" href="#experience">Experience</a>
+        <a class="hover:text-blue-600 font-medium" href="#skills">Skills</a>
+        <a class="hover:text-blue-600 font-medium" href="#publications">Publications</a>
+        <a class="hover:text-blue-600 font-medium" href="#education">Education</a>
+        <a class="hover:text-blue-600 font-medium" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <script type="text/babel">
-        const App = () => {
-          const personalData = {
-            name: "Vanga Manav",
-            title: "Associate Researcher & Product Development Scientist",
-            tagline: "Driving innovation in CRISPR, 3D Bioprinting, and Organoid Platforms",
-            profilePic: "https://placehold.co/150x150/00C896/FFFFFF?text=VM", // Vibrant placeholder for better contrast
-            about: `I am a biomedical engineering professional passionate about transforming advanced research into practical, scalable solutions for human health. My expertise spans CRISPR gene editing, cell line establishment, 3D bioprinting, and organoid platform development, enabling the creation of reproducible, high-fidelity models for drug discovery, toxicity testing, and disease modeling.
+  <!-- Hero Section (About Me equivalent) -->
+  <section id="home" class="max-w-4xl mx-auto px-4 py-16 text-center reveal">
+    <div class="flex flex-col items-center">
+      <!-- Profile Image -->
+      <img src="Image (27).jpg-e516bfc2-6e40-4d5d-960f-086aebdd4506" alt="Vanga Manav's professional headshot" class="w-48 h-48 object-cover rounded-full ring-4 ring-blue-500 shadow-lg" />
+      <h2 class="mt-6 text-3xl sm:text-4xl font-extrabold text-gray-900">Vanga Manav</h2>
+      <p class="mt-2 text-lg text-gray-700">Associate Researcher & Product Development Scientist</p>
+      <p class="mt-1 text-sm text-gray-500">Dallas, TX • Organoids • 3D Bioprinting • CRISPR</p>
+      <p class="mt-8 max-w-2xl text-gray-600 leading-relaxed">
+        I am a biomedical engineer focused on translational platforms: iPSC‑derived organoids, 3D bioprinting, dynamic perfusion, and assay development.
+        My current work at Bioprinting Laboratories, Inc. involves scaling pillar/perfusion plate products (36/144/384 formats) and validating co‑culture oncology models under flow.
+        I am passionate about turning cutting-edge biology into reproducible, productized screening solutions.
+      </p>
+      <!-- Social Media Buttons (resembling the new style) -->
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href="mailto:manavvanga@gmail.com" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-600 text-white font-semibold shadow-md hover:bg-blue-700 transition-colors" aria-label="Email Vanga Manav">
+          <i class="fas fa-envelope"></i> Email
+        </a>
+        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/vanga-manav-9a82721a2/" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gray-200 text-gray-800 font-semibold shadow-md hover:bg-gray-300 transition-colors" aria-label="Vanga Manav LinkedIn profile">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a target="_blank" rel="noopener" href="https://github.com/your-github" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gray-200 text-gray-800 font-semibold shadow-md hover:bg-gray-300 transition-colors" aria-label="Vanga Manav GitHub profile">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      </div>
+    </div>
+  </section>
 
-            I currently operate as an Associate at Bioprinting Laboratories Inc., where I lead efforts in high-throughput drug screening, assay development, and product commercialization. I have successfully optimized and scaled proprietary pillar/perfusion plate platforms from lab to market launch, ensuring quality control and reproducibility at the production scale.
+  <!-- About Section (General Bio and Core Skills) -->
+  <section id="about" class="max-w-4xl mx-auto px-4 py-12 reveal">
+    <h2 class="text-2xl font-extrabold text-gray-900 mb-6 text-center">About Me</h2>
+    <div class="bg-white p-8 rounded-lg shadow-md border border-gray-100">
+      <p class="text-gray-700 leading-relaxed">
+        As a biomedical engineer, my work spans from developing iPSC-derived organoids to utilizing 3D bioprinting for advanced research. My expertise includes dynamic perfusion systems and robust assay development. Currently, I am focused on enhancing the manufacturing and quality control of pillar/perfusion plate products (36/144/384 formats) at Bioprinting Laboratories, Inc. I also play a key role in validating co-culture oncology models under physiological flow conditions, contributing to more predictive research outcomes.
+      </p>
+      <ul class="mt-6 space-y-2 text-gray-700">
+        <li><span class="font-semibold text-gray-800">Core domains:</span> Organoids, 3D Bioprinting, NAMs, CRISPR</li>
+        <li><span class="font-semibold text-gray-800">Methods:</span> IF/IHC, ELISA, qPCR, imaging</li>
+        <li><span class="font-semibold text-gray-800">Tooling:</span> ImageJ</li>
+      </ul>
+    </div>
+  </section>
 
-            I resolve problems at the intersection of science and engineering whether it's improving the predictability of preclinical testing, streamlining manufacturing processes, or integrating cutting-edge biotechnologies to meet industry and academic needs. My work has contributed to NIH-funded projects, collaborations with global biotech partners, and publications in top-tier journals such as Lab on a Chip and ACS Biomaterials Science & Engineering.
+  <!-- Experience Section -->
+  <section id="experience" class="max-w-4xl mx-auto px-4 py-12 reveal">
+    <h2 class="text-2xl font-extrabold text-gray-900 mb-6 text-center">Experience</h2>
+    <div class="space-y-8">
+      <!-- Role 1: Associate Researcher -->
+      <article class="bg-white p-8 rounded-lg shadow-md border border-gray-100">
+        <h3 class="text-xl font-bold text-gray-900">Associate Researcher — Bioprinting Laboratories, Inc.</h3>
+        <p class="text-sm text-gray-500 mt-1">Jan 2024 – Present • Dallas, TX</p>
+        <ul class="mt-4 list-disc list-inside text-gray-700 space-y-2">
+          <li>Scaled manufacturing & QC for 36/144/384 Pillar/Perfusion plate platforms, enabling reproducible HTS.</li>
+          <li>Designed co‑culture assays (Hep3B + immune cells) under perfusion for predictive oncology readouts.</li>
+          <li>Wrote SOPs and instituted production‑scale QC benchmarks for external clients and collaborators.</li>
+          <li>Contributed to NIH‑funded work and peer‑reviewed publications.</li>
+        </ul>
+      </article>
+      <!-- Role 2: Assistant Researcher -->
+      <article class="bg-white p-8 rounded-lg shadow-md border border-gray-100">
+        <h3 class="text-xl font-bold text-gray-900">Assistant Researcher — University of North Texas</h3>
+        <p class="text-sm text-gray-500 mt-1">Feb 2023 – Dec 2023 • Denton, TX</p>
+        <ul class="mt-4 list-disc list-inside text-gray-700 space-y-2">
+          <li>Produced reproducible human liver organoids (iPSC) via microarray 3D bioprinting on pillar plates.</li>
+          <li>Ran phenotypic assays, IF, ELISA, qPCR to benchmark maturity and function.</li>
+        </ul>
+      </article>
+      <!-- Role 3: Project Intern -->
+      <article class="bg-white p-8 rounded-lg shadow-md border border-gray-100">
+        <h3 class="text-xl font-bold text-gray-900">Project Intern — Biological E. Limited</h3>
+        <p class="text-sm text-gray-500 mt-1">Dec 2020 – Mar 2021 • India</p>
+        <ul class="mt-4 list-disc list-inside text-gray-700 space-y-2">
+          <li>Executed QC testing for tetanus antitoxin and supported evaluations for Corbevax.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
 
-            I bring value through a combination of technical mastery, operational efficiency, and cross-functional collaboration. With hands-on experience in stem cell culture, iPSC-derived organoids, immunofluorescence, ELISA, qPCR, and microscopy, I lead and drive laboratory expertise with strategic product development.
+  <!-- Skills Section -->
+  <section id="skills" class="max-w-4xl mx-auto px-4 py-12 reveal">
+    <h2 class="text-2xl font-extrabold text-gray-900 mb-6 text-center">Skills</h2>
+    <div class="bg-white p-8 rounded-lg shadow-md border border-gray-100 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+      <!-- Skill with Icon -->
+      <div class="flex flex-col items-center text-center">
+        <i class="fas fa-flask text-4xl text-blue-600 mb-2"></i>
+        <span class="text-gray-700 font-medium">Organoid Culture</span>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <i class="fas fa-print text-4xl text-blue-600 mb-2"></i>
+        <span class="text-gray-700 font-medium">3D Bioprinting</span>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <i class="fas fa-vials text-4xl text-blue-600 mb-2"></i>
+        <span class="text-gray-700 font-medium">Assay Development</span>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <i class="fas fa-water text-4xl text-blue-600 mb-2"></i>
+        <span class="text-gray-700 font-medium">Perfusion Systems</span>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <i class="fas fa-dna text-4xl text-blue-600 mb-2"></i>
+        <span class="text-gray-700 font-medium">qPCR</span>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <i class="fas fa-microscope text-4xl text-blue-600 mb-2"></i>
+        <span class="text-gray-700 font-medium">IF/ELISA</span>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <i class="fas fa-code text-4xl text-blue-600 mb-2"></i>
+        <span class="text-gray-700 font-medium">Python</span>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <i class="fas fa-image text-4xl text-blue-600 mb-2"></i>
+        <span class="text-gray-700 font-medium">ImageJ</span>
+      </div>
+    </div>
+  </section>
 
-            I am driven by the belief that science should not just answer questions but deliver solutions. Open to connecting with biopharma, health, and research leaders seeking to advance translational medicine, accelerate discovery, and bring meaningful innovations to market.`,
-            experience: [
-              {
-                title: "Associate Researcher",
-                company: "Bioprinting Laboratories, Inc.",
-                duration: "Jan 2024 - Present (1 yr 8 mos)",
-                location: "Dallas, Texas, United States",
-                responsibilities: [
-                  "Optimized and scaled manufacturing of proprietary pillar/perfusion plate platforms (36PillarPlate, 144PillarPlate, 384PillarPlate) for 3D bioprinting and organoid culture, enabling reproducible, high-throughput drug screening and disease modeling.",
-                  "Led quality control and validation processes, ensuring plate performance met reproducibility and reliability standards for global clients.",
-                  "Designed and validated functional assays for pillar/perfusion plate applications, including co-culturing liver cancer spheroids with immune cells to advance predictive oncology models.",
-                  "Authored and implemented SOPs for large-scale production, streamlining workflows and maintaining comprehensive QC benchmarks.",
-                  "Supported CRISPR gene editing and cell line establishment projects within broader R&D initiatives.",
-                  "Partnered with NIH-funded teams and international collaborators, contributing to peer-reviewed publications in Lab on a Chip and ACS Biomaterials Science & Engineering."
-                ]
-              },
-              {
-                title: "Assistant Researcher",
-                company: "University of North Texas",
-                duration: "Feb 2023 - Dec 2023 (11 mos)",
-                location: "Denton, Texas, United States",
-                responsibilities: [
-                  "Produced reproducible human liver organoids from iPSCs using microarray 3D bioprinting technology to improve assay predictability for drug screening.",
-                  "Optimized workflows for micro-pillar/well plates, 36Pillar/Perfusion Plates, and 384-pillar plate systems, improving operational efficiency.",
-                  "Performed phenotypic assays, immunofluorescence staining, ELISA, and qPCR to assess organoid maturity and functional characteristics.",
-                  "Provided technical assistance and on CRISPR-based experiments cell line development for collaborative projects in regenerative medicine and disease modeling.",
-                  "Pipetting, 3D Bioprinting, and 21 skills."
-                ]
-              },
-              {
-                title: "Project Intern",
-                company: "Biological E. Limited - Internship",
-                duration: "Dec 2020 - Mar 2021 (4 mos)",
-                location: "India - On-site",
-                responsibilities: [
-                  "Executed quality control testing for tetanus antitoxin and conducted detailed evaluations for COVID-19 vaccines (Corbevax).",
-                  "Pipetting, Laboratory Techniques, and 10 skills."
-                ]
-              }
-            ],
-            education: [
-              {
-                degree: "Master of Science - MS, Biomedical/Medical Engineering",
-                university: "University of North Texas",
-                duration: "Jan 2022 - Jul 2023",
-                skills: "Laboratory Techniques, Purification, and 25 skills"
-              },
-              {
-                degree: "Bachelor of Technology - BTech, Biotechnology",
-                university: "KL University",
-                duration: "2017 - 2021",
-                skills: "Laboratory Techniques, Purification, and 17 skills"
-              }
-            ],
-            certifications: [
-              { name: "DNA decoded", issuer: "Coursera", date: "Jan 2021" },
-              { name: "Industrial biotechnology", issuer: "Coursera", date: "Dec 2020" },
-              { name: "Research methodology: statistical tools for data analysis and interpretation", issuer: "Coursera (UGC)", date: "Oct 2020" },
-              { name: "Cell culture technologies", issuer: "NPTEL", date: "Apr 2020" }
-            ],
-            skills: [
-              "Good Manufacturing Practice (GMP)", "Quality Control", "Cell Culture", "ELISA", "PCR",
-              "Western Blot", "Spectrophotometry", "Chromatography", "Gene Editing", "CRISPR",
-              "Molecular Biology", "Biochemistry", "Biophysics", "Immunology", "Microscopy",
-              "Flow Cytometry", "Data Analysis", "Python", "R", "Jupyter Notebooks", "MATLAB",
-              "3D Bioprinting", "Organoid Culture", "High-throughput Screening", "Assay Development",
-              "Product Development", "Research & Development", "Project Management", "Teamwork",
-              "Communication", "Problem Solving", "Critical Thinking", "Technical Writing",
-              "Troubleshooting", "Innovation", "Experimental Design", "Data Interpretation",
-              "Cell Line Development", "Mammalian Cell Culture", "Molecular Cloning", "Protein Purification",
-              "Immunofluorescence", "Cell Viability Assays", "Drug Discovery", "Preclinical Development",
-              "Regenerative Medicine", "Tissue Engineering"
-            ],
-            publications: [
-              {
-                title: "Reproducible, Scale-Up Production of Human Liver Organoids (HLOs) on a Pillar Plate Platform via Microarray 3D Bioprinting",
-                journal: "Methods in Molecular Biology",
-                date: "Jan 17, 2025",
-                summary: "Human liver organoids (HLOs) derived from pluripotent stem cells hold potential for disease modeling and high-throughput compound screening due to their architectural and functional resemblance to human liver tissues. We present a robust protocol for the scalable production of HLOs using micro-pillar/well plates and microarray 3D bioprinting. This technology facilitates the rapid, uniform seeding of organoids onto the pillar plate, maintaining cell viability and enabling the scale-up generation of HLOs. The assay-ready pillar plate with HLOs is suitable for compound testing, as well as in situ organoid staining and analysis."
-              },
-              {
-                title: "Dynamic Culture of Bioprinted Liver Tumor Spheroids in a Pillar/Perfusion Plate for Predictive Screening of Anticancer Drugs",
-                journal: "Biotechnology and Bioengineering",
-                date: "Jan 16, 2025",
-                summary: "We describe advanced insights in three-dimensional (3D) cell culture technologies, such as cell spheroids, organoids, and 3D bioprinted tissue constructs, have significantly improved the physiological in vivo relevance to study both normal and diseased morphology and function. Here, we demonstrate a novel 3D cell culture platform, combined with 144-perfusion plate formats, 144PillarPlate, 384PillarPlate and a complementary 144-perfusion plate with perfusion wells and reservoirs (144PerfusionPlate) for dynamic 3D cell culture and predictive compound screening. To accelerate biomarker timely response, small Hep3B liver tumor spheroids suspended in alginate were printed and encapsulated on the 144PillarPlate rapidly by using microgravity large spheroids in the 144PillarPlate and bioprinted Hep3B spheroids on the 144PillarPlate were dynamic cultured with minimal manual intervention. The bioprinted Hep3B spheroids are viable and demonstrate to determine the cancer spheroids to facilitate 50% of the cell dynamic testing of anticancer drugs with decreased sensitivity."
-              },
-              {
-                title: "High-Throughput Assessment of Metabolism-Mediated Neurotoxicity by Co-Culture of Neuron-Glia Spheroids and Liver Spheroids",
-                journal: "Current Protocol",
-                date: "Oct 7, 2024",
-                summary: "We evaluate a high throughput 3D cell culture based on demonstrated in ultralow attachment well plates, reproducible, flat plates with pillar cell hydrogels has been magnetic nanoparticles. Although it is simple, reproducible, and cooperative, this potentially used for high-throughput screening, statically cultured 3D cells often suffer from a necrotic core due to limited nutrient and oxygen diffusion and waste removal and waste platform and dynamic cultured spheroids with minimal manual intervention. The bioprinted Hep3B spheroids from a liver tissue demonstrates a high-throughput 3D cell culture developed in collaboration with a pharmaceutical company. The cell culture platform is validated for neurotoxicity assessment by co-culturing neuron-glia spheroids and Hep3B spheroids from a liver tissue. These results demonstrate a robust and scalable method for drug discovery and preclinical development. "
-              },
-              {
-                title: "Statistical Optimization of Temperature, Concentration, RPM and pH for the Surface Tension of Soft Drinks by Gas Chromatography",
-                journal: "Journal of Biosurfactant by Achromobacter",
-                date: "Feb 20, 2021",
-                summary: "Achromobacter strain GSR21 plays a crucial role in bioremediation of fossil fuel contamination, bioproduction, and research leading to soil health improvement. Petroleum contamination and other chemicals in gasoline lead to environmental degradation. We applied Gas Chromatography for our findings. The study confirms a robust method for predicting and optimizing the conditions for bioremediation of gasoline."
-              },
-              {
-                title: "Optimization of parameters for efficient analysis of nucleic acid characterization by varying a cost-effective running buffers for agarose gel electrophoresis",
-                journal: "International Journal of biology research",
-                date: "Jan 20, 2020",
-                summary: "We report on an efficient approach for rapid analysis of nucleic acid characterization by varying a cost-effective running buffers for agarose gel electrophoresis. This method is crucial for forensic science and disease diagnosis. The study confirmed that optimal conditions can be achieved by using different buffers for agarose gel electrophoresis."
-              }
-            ]
-          };
+  <!-- Publications Section -->
+  <section id="publications" class="max-w-4xl mx-auto px-4 py-12 reveal">
+    <h2 class="text-2xl font-extrabold text-gray-900 mb-6 text-center">Publications</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <!-- Publication 1 -->
+      <article class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+        <h3 class="font-bold text-gray-900">Reproducible, Scale‑Up Production of HLOs on a Pillar Plate Platform</h3>
+        <p class="text-sm text-gray-500 mt-1">Methods in Molecular Biology — Jan 17, 2025</p>
+        <p class="mt-2 text-gray-700">Scalable protocol using micro‑pillar/well plates and microarray bioprinting to generate uniform iPSC‑derived liver organoids for screening.</p>
+      </article>
+      <!-- Publication 2 -->
+      <article class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+        <h3 class="font-bold text-gray-900">Dynamic Culture of Bioprinted Liver Tumor Spheroids under Perfusion</h3>
+        <p class="text-sm text-gray-500 mt-1">Biotechnology & Bioengineering — Jan 16, 2025</p>
+        <p class="mt-2 text-gray-700">Hep3B spheroids encapsulated in alginate on 144‑format pillar plates to study anti‑cancer responses with improved physiological relevance.</p>
+      </article>
+      <!-- Publication 3 -->
+      <article class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+        <h3 class="font-bold text-gray-900">Metabolism‑Mediated Neurotoxicity via Neuron‑Glia & Liver Spheroid Co‑culture</h3>
+        <p class="text-sm text-gray-500 mt-1">Current Protocol — Oct 7, 2024</p>
+        <p class="mt-2 text-gray-700">High‑throughput spheroid co‑culture enabling neurotoxicity assessment with metabolic activation.</p>
+      </article>
+      <!-- Publication 4 -->
+      <article class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+        <h3 class="font-bold text-gray-900">Optimization of Parameters for Nucleic Acid Characterization</h3>
+        <p class="text-sm text-gray-500 mt-1">International Journal of Biology Research — Jan 20, 2020</p>
+        <p class="mt-2 text-gray-700">Cost‑effective buffer strategies for agarose gel electrophoresis workflows.</p>
+      </article>
+    </div>
+  </section>
 
-          // Inline SVG icons (Lucide-inspired for direct HTML use)
-          const MailIcon = () => (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mail mr-2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          );
+  <!-- Education Section -->
+  <section id="education" class="max-w-4xl mx-auto px-4 py-12 reveal">
+    <h2 class="text-2xl font-extrabold text-gray-900 mb-6 text-center">Education</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <!-- Master's Degree -->
+      <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+        <h3 class="font-bold text-gray-900">M.S., Biomedical/Medical Engineering</h3>
+        <p class="text-sm text-gray-500 mt-1">University of North Texas — 2022–2023</p>
+      </div>
+      <!-- Bachelor's Degree -->
+      <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+        <h3 class="font-bold text-gray-900">B.Tech, Biotechnology</h3>
+        <p class="text-sm text-gray-500 mt-1">KL University — 2017–2021</p>
+      </div>
+    </div>
+  </section>
 
-          const LinkedinIcon = () => (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-linkedin mr-2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-          );
+  <!-- Contact Section -->
+  <section id="contact" class="max-w-4xl mx-auto px-4 py-12 reveal">
+    <h2 class="text-2xl font-extrabold text-gray-900 mb-6 text-center">Contact Me</h2>
+    <div class="bg-white p-8 rounded-lg shadow-md border border-gray-100">
+      <p class="text-gray-700 leading-relaxed mb-6">I’m open to collaborations with biopharma and research teams working on HTS, organoids, and NAMs. Feel free to reach out using the form below or via my contact details.</p>
 
-          const GithubIcon = () => (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-github mr-2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3.5 0 4-2.2 4-4v-2c0-3.2-1.2-4-3-4a5 5 0 0 0-2 1.3A3.8 3.8 0 0 0 9 3C7 3 5 5 5 9c0 3.8 2.5 4.8 4 4.8a2 2 0 0 1 2 2v4"/><line x1="12" x2="12" y1="2" y2="6"/><path d="M10 20c-5-2-5-5-5-5v-1c0-2.6.2-4.5 1-5.5"/><circle cx="12" cy="12" r="10"/></svg>
-          );
+      <!-- Contact Form Placeholder -->
+      <form class="space-y-4">
+        <div>
+          <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+          <input type="text" id="name" name="name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Your Name" />
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+          <input type="email" id="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500" placeholder="your@example.com" />
+        </div>
+        <div>
+          <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+          <textarea id="message" name="message" rows="4" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Your Message"></textarea>
+        </div>
+        <button type="submit" class="w-full px-6 py-3 rounded-md bg-blue-600 text-white font-semibold shadow-md hover:bg-blue-700 transition-colors">Send Message</button>
+      </form>
 
+      <div class="mt-8 text-center">
+        <h3 class="text-lg font-bold text-gray-900 mb-3">Or Connect Directly:</h3>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a href="mailto:manavvanga@gmail.com" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gray-200 text-gray-800 hover:bg-gray-300 transition-colors">
+            <i class="fas fa-envelope"></i> manavvanga@gmail.com
+          </a>
+          <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/vanga-manav-9a82721a2/" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gray-200 text-gray-800 hover:bg-gray-300 transition-colors">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+          <a target="_blank" rel="noopener" href="https://github.com/your-github" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gray-200 text-gray-800 hover:bg-gray-300 transition-colors">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          return (
-            <div className="min-h-screen"> {/* Removed bg-gray-900 here to let body background show */}
-              {/* Header Section */}
-              <header className="sticky top-0 z-50 bg-gradient-to-r from-blue-900 to-purple-900 p-6 text-white shadow-xl rounded-b-3xl">
-                <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
-                  <div className="flex flex-col md:flex-row items-center text-center md:text-left">
-                    <img
-                      src={personalData.profilePic}
-                      alt="Vanga Manav"
-                      className="w-28 h-28 rounded-full border-4 border-teal-400 shadow-xl mb-4 md:mb-0 md:mr-6 transform hover:scale-105 transition-transform duration-300"
-                    />
-                    <div>
-                      <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight mb-1 text-teal-300 drop-shadow-lg">{personalData.name}</h1>
-                      <p className="text-xl lg:text-2xl font-light opacity-90">{personalData.title}</p>
-                      <p className="text-md lg:text-lg opacity-80 mt-2">{personalData.tagline}</p>
-                    </div>
-                  </div>
-                  <nav className="mt-6 md:mt-0">
-                    <ul className="flex flex-wrap justify-center gap-x-6 gap-y-3 font-semibold">
-                      <li><a href="#about" className="text-teal-200 hover:text-teal-400 transition-colors duration-300 transform hover:scale-105 inline-block">About</a></li>
-                      <li><a href="#experience" className="text-teal-200 hover:text-teal-400 transition-colors duration-300 transform hover:scale-105 inline-block">Experience</a></li>
-                      <li><a href="#education" className="text-teal-200 hover:text-teal-400 transition-colors duration-300 transform hover:scale-105 inline-block">Education</a></li>
-                      <li><a href="#skills" className="text-teal-200 hover:text-teal-400 transition-colors duration-300 transform hover:scale-105 inline-block">Skills</a></li>
-                      <li><a href="#publications" className="text-teal-200 hover:text-teal-400 transition-colors duration-300 transform hover:scale-105 inline-block">Publications</a></li>
-                      <li><a href="#contact" className="text-teal-200 hover:text-teal-400 transition-colors duration-300 transform hover:scale-105 inline-block">Contact</a></li>
-                    </ul>
-                  </nav>
-                </div>
-              </header>
+  <!-- Footer -->
+  <footer class="py-8 text-center text-sm text-gray-500 border-t border-gray-200 mt-12">
+    © <span id="y"></span> Vanga Manav — Built with Tailwind CSS. Hosted on GitHub Pages.
+  </footer>
 
-              <main className="container mx-auto px-4 py-16 space-y-16">
+  <script>
+    // Set the current year in the footer
+    document.getElementById('y').textContent = new Date().getFullYear();
 
-                {/* About Section */}
-                <section id="about" className="bg-gray-800 p-8 rounded-2xl shadow-2xl border border-gray-700 animate-fade-in-up">
-                  <h2 className="text-3xl font-bold text-teal-400 mb-6 border-b-2 border-teal-600 pb-3">About Me</h2>
-                  <p className="text-gray-200 leading-relaxed text-lg whitespace-pre-line">{personalData.about}</p>
-                </section>
-
-                {/* Experience Section */}
-                <section id="experience" className="bg-gray-800 p-8 rounded-2xl shadow-2xl border border-gray-700 animate-fade-in-up delay-100">
-                  <h2 className="text-3xl font-bold text-teal-400 mb-6 border-b-2 border-teal-600 pb-3">Experience</h2>
-                  {personalData.experience.map((job, index) => (
-                    <div key={index} className="mb-8 last:mb-0 p-6 bg-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-600">
-                      <h3 className="text-xl font-extrabold text-teal-300 mb-1">{job.title}</h3>
-                      <p className="text-lg text-gray-200 font-semibold">{job.company}</p>
-                      <p className="text-gray-400 text-sm mb-2">{job.duration} | {job.location}</p>
-                      <ul className="list-disc list-inside text-gray-300 space-y-2 text-base">
-                        {job.responsibilities.map((res, i) => (
-                          <li key={i} className="leading-relaxed">{res}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </section>
-
-                {/* Education Section */}
-                <section id="education" className="bg-gray-800 p-8 rounded-2xl shadow-2xl border border-gray-700 animate-fade-in-up delay-200">
-                  <h2 className="text-3xl font-bold text-teal-400 mb-6 border-b-2 border-teal-600 pb-3">Education</h2>
-                  {personalData.education.map((edu, index) => (
-                    <div key={index} className="mb-6 last:mb-0 p-6 bg-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-600">
-                      <h3 className="text-xl font-extrabold text-teal-300 mb-1">{edu.degree}</h3>
-                      <p className="text-lg text-gray-200 font-semibold">{edu.university}</p>
-                      <p className="text-gray-400 text-sm mb-2">{edu.duration}</p>
-                      {edu.skills && <p className="text-sm text-gray-500">Skills: {edu.skills}</p>}
-                    </div>
-                  ))}
-                </section>
-
-                {/* Skills Section */}
-                <section id="skills" className="bg-gray-800 p-8 rounded-2xl shadow-2xl border border-gray-700 animate-fade-in-up delay-300">
-                  <h2 className="text-3xl font-bold text-teal-400 mb-6 border-b-2 border-teal-600 pb-3">Skills</h2>
-                  <div className="flex flex-wrap gap-3">
-                    {personalData.skills.map((skill, index) => (
-                      <span key={index} className="bg-teal-700 text-teal-100 px-5 py-2 rounded-full text-base font-medium shadow-md hover:bg-teal-600 hover:text-white transition-colors duration-300 transform hover:scale-105 cursor-pointer">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                  <h3 className="text-2xl font-bold text-teal-400 mt-10 mb-6 border-b-2 border-teal-600 pb-3">Certifications</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {personalData.certifications.map((cert, index) => (
-                      <div key={index} className="p-5 bg-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-600">
-                        <h4 className="text-lg font-semibold text-teal-300 mb-1">{cert.name}</h4>
-                        <p className="text-gray-200 text-base">{cert.issuer} | <span className="text-sm text-gray-400">{cert.date}</span></p>
-                      </div>
-                    ))}
-                  </div>
-                </section>
-
-                {/* Publications Section */}
-                <section id="publications" className="bg-gray-800 p-8 rounded-2xl shadow-2xl border border-gray-700 animate-fade-in-up delay-400">
-                  <h2 className="text-3xl font-bold text-teal-400 mb-6 border-b-2 border-teal-600 pb-3">Publications</h2>
-                  <div className="space-y-8">
-                    {personalData.publications.map((pub, index) => (
-                      <div key={index} className="p-6 bg-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-600">
-                        <h3 className="text-xl font-extrabold text-teal-300 mb-2">{pub.title}</h3>
-                        <p className="text-lg text-gray-200 font-semibold mb-2">{pub.journal} | <span className="text-sm text-gray-400">{pub.date}</span></p>
-                        <p className="text-gray-300 leading-relaxed text-base">{pub.summary}</p>
-                        {/* Example: Add a button to read more if you have links */}
-                        {/* <a href={pub.link} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center text-teal-400 hover:text-teal-300 font-semibold transition-colors duration-300">
-                          Read More
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="lucide lucide-arrow-right ml-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                        </a> */}
-                      </div>
-                    ))}
-                  </div>
-                </section>
-
-                {/* Contact Section */}
-                <section id="contact" className="bg-gray-800 p-8 rounded-2xl shadow-2xl border border-gray-700 animate-fade-in-up delay-500">
-                  <h2 className="text-3xl font-bold text-teal-400 mb-6 border-b-2 border-teal-600 pb-3">Contact</h2>
-                  <p className="text-lg text-gray-200 mb-6">I'm always open to discussing new projects, collaborations, or opportunities. Feel free to reach out!</p>
-                  <div className="flex flex-wrap justify-center gap-6">
-                    {/* *** START EDITING HERE *** */}
-                    <a href="mailto:manavvanga@gmail.com" className="bg-teal-600 text-white px-7 py-3 rounded-full shadow-md hover:bg-teal-500 transition-all duration-300 transform hover:-translate-y-1 flex items-center font-semibold text-lg">
-                      <MailIcon />
-                      Email Me
-                    </a>
-                    <a href="https://www.linkedin.com/in/vanga-manav-9a82721a2/-linkedin-profile/" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-7 py-3 rounded-full shadow-md hover:bg-blue-500 transition-all duration-300 transform hover:-translate-y-1 flex items-center font-semibold text-lg">
-                      <LinkedinIcon />
-                      LinkedIn
-                    </a>
-                    <a href="https://github.com/your-actual-github-username" target="_blank" rel="noopener noreferrer" className="bg-purple-600 text-white px-7 py-3 rounded-full shadow-md hover:bg-purple-500 transition-all duration-300 transform hover:-translate-y-1 flex items-center font-semibold text-lg">
-                      <GithubIcon />
-                      GitHub
-                    </a>
-                    {/* *** END EDITING HERE *** */}
-                  </div>
-                </section>
-              </main>
-
-              {/* Footer */}
-              <footer className="bg-gray-950 text-gray-400 text-center p-8 mt-16 rounded-t-3xl shadow-inner">
-                <p>&copy; {new Date().getFullYear()} Vanga Manav. All rights reserved.</p>
-                <p className="text-sm mt-3 opacity-80">Designed & Built with React and Tailwind CSS</p>
-              </footer>
-            </div>
-          );
-        };
-
-        ReactDOM.render(<App />, document.getElementById('root'));
-    </script>
+    // Intersection Observer for reveal-on-scroll animation
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.14
+    });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
 </body>
 </html>
