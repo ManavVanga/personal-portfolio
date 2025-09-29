@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Manav Vanga | Portfolio</title>
-<meta name="description" content="Portfolio of Manav Vanga – Drug Discovery, Disease Modelling & In Vitro Models.">
-<meta name="author" content="Manav Vanga"/>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manav Vanga | Portfolio</title>
+  <meta name="description" content="Portfolio of Manav Vanga – Drug Discovery, Disease Modelling & In Vitro Models.">
+  <meta name="author" content="Manav Vanga"/>
 
-<link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
 
-<!-- AOS -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  AOS.init({
-    once: true,
-    duration: 1200,
-    easing: 'ease-out'
-  });
-});
-</script>
+  <!-- AOS Animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      AOS.init({
+        once: true,
+        duration: 1200,
+        easing: 'ease-out'
+      });
+    });
+  </script>
 </head>
 <body>
 <header data-aos="fade-down">
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
   </p>
 </section>
 
-<!-- ✅ Fixed Contact Form -->
+<!-- ✅ Contact Form -->
 <section id="contact" data-aos="fade-up">
   <h2>Contact</h2>
   <p style="text-align:center;">Send me a message directly here 👇</p>
@@ -123,12 +123,12 @@ let i=0, j=0, isDel=false;
   typingElement.textContent = cur.substring(0, j);
 
   if(!isDel){ 
-    j < cur.length ? j++ : (isDel=true, setTimeout(type,2500)); 
+    j < cur.length ? j++ : (isDel=true, setTimeout(type,3000)); 
   } else { 
     j > 0 ? j-- : (isDel=false, i=(i+1)%words.length); 
   }
 
-  setTimeout(type, isDel ? 120 : 180);
+  setTimeout(type, isDel ? 150 : 200);
 })();
 </script>
 </body>
