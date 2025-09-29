@@ -1,86 +1,128 @@
-/* ---------- Global / Background ---------- */
-body{
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  color: #f1f1f1;
   background: url('../img/geisel.jpg') no-repeat center center fixed;
   background-size: cover;
-  margin:0;
-  font-family:'Segoe UI',sans-serif;
-  color:#f1f1f1;
-  position:relative;
-  min-height:100vh;
-  overflow-x:hidden;
-}
-body::before{
-  content:"";
-  position:fixed; inset:0;
-  background:rgba(0,0,0,.55);
-  backdrop-filter:blur(4px);
-  z-index:-1;
-}
-html{ scroll-behavior:smooth; }
-
-a{ color:#90e0ef; text-decoration:none; }
-a:hover{ text-decoration:underline; }
-
-/* ---------- Structure ---------- */
-h1{ text-align:center; padding:2rem; color:#90e0ef; margin:0; }
-h2{ text-align:center; color:#48cae4; margin-top:0; }
-
-section{
-  max-width:900px;
-  margin:2rem auto;
-  background:rgba(0,0,0,.6);
-  padding:1.5rem;
-  border-radius:12px;
-  box-shadow:0 2px 8px rgba(0,0,0,.2);
+  min-height: 100vh;
+  line-height: 1.6;
 }
 
-/* ---------- Header ---------- */
-header{
-  text-align:center;
-  padding:2rem;
-  background:rgba(0,0,0,.4);
-  border-radius:12px;
-  margin:1rem auto 0;
-  max-width:800px;
-}
-header img{
-  width:140px; height:140px;
-  border-radius:50%;
-  border:4px solid #38bdf8;
-  object-fit:cover;
-  margin-bottom:1rem;
+/* Header */
+header {
+  text-align: center;
+  padding: 40px 20px 20px;
 }
 
-/* ---------- Nav ---------- */
-nav{
-  position:sticky; top:0;
-  background:rgba(0,0,0,.6);
-  padding:1rem;
-  display:flex; justify-content:center; flex-wrap:wrap;
-  gap:1.5rem; font-weight:bold;
+header img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #90e0ef;
 }
-nav a{ color:#38bdf8; }
-nav a:hover{ text-decoration:underline; }
 
-/* ---------- Footer ---------- */
-footer{
-  text-align:center;
-  padding:2rem 0;
-  margin-top:50px;
-  background:rgba(0,0,0,.6);
+header h1 {
+  font-size: 2rem;
+  margin-top: 10px;
+  color: #fff;
 }
-.icon-btn{
-  background:#1a1a1a; border-radius:50%;
-  width:50px; height:50px;
-  display:inline-flex; align-items:center; justify-content:center;
-  margin:0 .5rem;
-}
-footer img{ filter: invert(1); }
 
-/* ---------- Small helpers ---------- */
-.btn{
-  display:inline-block;
-  background:#f6c343; color:#0f172a;
-  padding:12px 24px; border-radius:6px; font-weight:700;
+/* Navigation */
+nav {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 12px;
+  margin-bottom: 30px;
 }
-ul.compact{ margin:0 auto; max-width:700px; }
+
+nav a {
+  color: #90e0ef;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+/* Sections */
+section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  text-align: center;
+}
+
+section h2 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #90e0ef;
+}
+
+ul.compact {
+  list-style: none;
+  padding: 0;
+}
+
+ul.compact li {
+  margin: 8px 0;
+}
+
+/* Resume Button */
+.btn {
+  background: #ffd166;
+  color: #000;
+  padding: 10px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #ffb703;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  background: rgba(0, 0, 0, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer .icon-btn {
+  margin: 0 10px;
+  display: inline-block;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+footer .icon-btn img {
+  filter: brightness(0) invert(1); /* makes icons white */
+  width: 28px;
+  height: 28px;
+}
+
+footer .icon-btn:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+footer p {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
