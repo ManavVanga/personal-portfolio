@@ -5,6 +5,7 @@
   box-sizing: border-box;
 }
 
+/* Background with darker overlay */
 body {
   font-family: 'Segoe UI', sans-serif;
   color: #f1f1f1;
@@ -12,6 +13,19 @@ body {
   background-size: cover;
   min-height: 100vh;
   line-height: 1.6;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* dark overlay */
+  backdrop-filter: blur(4px);      /* slight blur for clarity */
+  z-index: -1;
 }
 
 /* Header */
@@ -33,12 +47,13 @@ header h1 {
   font-size: 2rem;
   margin-top: 10px;
   color: #fff;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 /* Navigation */
 nav {
   text-align: center;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.65);
   padding: 12px;
   margin-bottom: 30px;
 }
@@ -49,6 +64,7 @@ nav a {
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
 }
 
 nav a:hover {
@@ -60,7 +76,7 @@ section {
   max-width: 800px;
   margin: 40px auto;
   padding: 30px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.75); /* darker behind text */
   border-radius: 10px;
   text-align: center;
 }
@@ -69,8 +85,14 @@ section h2 {
   margin-bottom: 15px;
   font-size: 1.5rem;
   color: #90e0ef;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
 }
 
+section p {
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
+
+/* List styling */
 ul.compact {
   list-style: none;
   padding: 0;
@@ -78,6 +100,7 @@ ul.compact {
 
 ul.compact li {
   margin: 8px 0;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
 }
 
 /* Resume Button */
@@ -100,7 +123,7 @@ footer {
   text-align: center;
   padding: 20px;
   margin-top: 40px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.65);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -128,4 +151,5 @@ footer .icon-btn:hover {
 footer p {
   font-size: 0.9rem;
   color: #ccc;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
 }
