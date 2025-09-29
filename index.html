@@ -31,4 +31,105 @@
     <div><strong>Focus:</strong> Drug Discovery, Disease Modelling & In Vitro Models</div>
   </div>
   <h1>Manav Vanga</h1>
-  <div i
+  <div id="typing" style="font-size:1.1rem; color:#90e0ef; height:28px;"></div>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="projects.html">Projects</a>
+  <a href="#resume">Resume</a>
+  <a href="publications.html">Publications</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about" data-aos="fade-up">
+  <h2>About Me</h2>
+  <p>I am a Research Associate at <strong>Bioprinting Laboratories Inc.</strong>, contributing to <em>drug discovery, disease modelling, and advanced in vitro models</em> for predictive toxicology and translational research.</p>
+  <p>My work focuses on reproducible human-relevant models, hydrogel optimization, and high-throughput assay development.</p>
+</section>
+
+<section id="skills" data-aos="fade-up">
+  <h2>Top Skills</h2>
+  <ul class="compact">
+    <li>3D cell culture & organoids</li>
+    <li>Hydrogel engineering (alginate–gelatin)</li>
+    <li>Assay development, HTS compatibility</li>
+    <li>Image analysis (ImageJ), GraphPad Prism</li>
+  </ul>
+</section>
+
+<section id="projects" data-aos="fade-up">
+  <h2>Highlighted Projects</h2>
+  <p style="text-align:center;">See detailed write-ups on the <a href="projects.html">Projects page →</a></p>
+</section>
+
+<section id="resume" data-aos="fade-up">
+  <h2>Resume</h2>
+  <p style="text-align:center;">
+    <a class="btn" href="MANAV_VANGA_Resume.pdf" download>⬇ Download CV</a>
+  </p>
+</section>
+
+<!-- ✅ Fixed Contact Form -->
+<section id="contact" data-aos="fade-up">
+  <h2>Contact</h2>
+  <p style="text-align:center;">Send me a message directly here 👇</p>
+  
+  <form action="mailto:manavvanga@gmail.com" method="post" enctype="text/plain" 
+        style="max-width:500px; margin:auto; text-align:left; background:rgba(0,0,0,0.6); padding:20px; border-radius:10px;">
+    
+    <label style="color:#fff;">Name</label>
+    <input type="text" name="name" required 
+           style="width:100%; padding:10px; margin:6px 0; border-radius:5px; border:none;">
+    
+    <label style="color:#fff;">Email</label>
+    <input type="email" name="email" required 
+           style="width:100%; padding:10px; margin:6px 0; border-radius:5px; border:none;">
+    
+    <label style="color:#fff;">Message</label>
+    <textarea name="message" rows="4" required 
+              style="width:100%; padding:10px; margin:6px 0; border-radius:5px; border:none;"></textarea>
+    
+    <button type="submit" 
+            style="width:100%; padding:12px; background:#90e0ef; border:none; color:#000; font-weight:bold; border-radius:5px; cursor:pointer; margin-top:10px;">
+      ✉ Send Message
+    </button>
+  </form>
+</section>
+
+<footer>
+  <div class="footer-icons">
+    <a class="icon-btn" href="mailto:manavvanga@gmail.com" title="Email">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/new-post.png" alt="Email">
+    </a>
+    <a class="icon-btn" href="https://www.linkedin.com/in/vangamanav" target="_blank" title="LinkedIn">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
+    </a>
+    <a class="icon-btn" href="https://github.com/ManavVanga" target="_blank" title="GitHub">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub">
+    </a>
+  </div>
+  <p style="margin-top:12px;">© 2025 Manav Vanga</p>
+</footer>
+
+<script>
+const typingElement = document.getElementById("typing");
+const words = ["Research Associate","Drug Discovery","Disease Modelling","In Vitro Models"];
+let i=0, j=0, isDel=false;
+
+(function type(){
+  const cur = words[i];
+  typingElement.textContent = cur.substring(0, j);
+
+  if(!isDel){ 
+    j < cur.length ? j++ : (isDel=true, setTimeout(type,2500)); 
+  } else { 
+    j > 0 ? j-- : (isDel=false, i=(i+1)%words.length); 
+  }
+
+  setTimeout(type, isDel ? 120 : 180);
+})();
+</script>
+</body>
+</html>
