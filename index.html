@@ -4,105 +4,26 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Manav Vanga | Portfolio</title>
-  <meta name="description" content="Portfolio of Manav Vanga – Research Associate at Bioprinting Labs, 3D Bioprinting & Organoid Development.">
-  <meta name="keywords" content="Manav Vanga, Bioprinting Labs, organoids, 3D cell culture, NAMs, biotech portfolio"/>
+  <meta name="description" content="Portfolio of Manav Vanga – Drug Discovery, Disease Modelling & In Vitro Models.">
   <meta name="author" content="Manav Vanga"/>
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <!-- AOS (optional animations) -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      AOS.init({ once: true });
-    });
-  </script>
-  <style>
-    body {
-      background: url('assets/img/geisel.jpg') no-repeat center center fixed;
-      background-size: cover;
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      color: #0f172a;
-    }
-    header {
-      text-align: center;
-      padding: 2rem;
-      background: rgba(255, 255, 255, 0.8);
-    }
-    header img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      border: 4px solid #38bdf8;
-      object-fit: cover;
-      margin-bottom: 1rem;
-    }
-    h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-    nav {
-      position: sticky;
-      top: 0;
-      background: rgba(255,255,255,0.95);
-      padding: 1rem;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      font-weight: bold;
-    }
-    nav a {
-      color: #0077b6;
-      text-decoration: none;
-    }
-    section {
-      max-width: 900px;
-      margin: 2rem auto;
-      background: #ffffffcc;
-      padding: 2rem;
-      border-radius: 12px;
-    }
-    h2 {
-      text-align: center;
-      color: #0077b6;
-    }
-    .skill-bar {
-      margin: 1rem 0;
-    }
-    .skill-bar-label {
-      font-weight: bold;
-    }
-    .bar {
-      width: 100%;
-      background: #caf0f8;
-      height: 18px;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .bar-fill {
-      height: 100%;
-      background: linear-gradient(to right, #00b4d8, #0077b6);
-      width: 0;
-      transition: width 1.5s ease-in-out;
-    }
-    .card {
-      background: white;
-      border-radius: 8px;
-      padding: 1rem;
-      margin-top: 1rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-  </style>
+  <script>document.addEventListener('DOMContentLoaded',()=>AOS.init({once:true}));</script>
 </head>
 <body>
-<header>
-  <img src="Image (27).jpg" alt="Manav Vanga"/>
-  <div style="text-align: center; font-size: 1.1rem; color: #333; margin-top: 20px;">
+<header data-aos="fade-down">
+  <img src="Image (27).jpg" alt="Manav Vanga">
+  <div style="font-size:1.05rem; margin-top:10px;">
     <div><strong>City:</strong> Dallas, TX, USA</div>
     <div><strong>Role:</strong> Research Associate</div>
-    <div><strong>Focus:</strong> Bioprinting & Organoids</div>
+    <div><strong>Focus:</strong> Drug Discovery, Disease Modelling & In Vitro Models</div>
   </div>
   <h1>Manav Vanga</h1>
-  <div id="typing" style="font-size: 1.1rem; color: #0077b6; height: 28px;"></div>
+  <div id="typing" style="font-size:1.1rem; color:#90e0ef; height:28px;"></div>
 </header>
 
 <nav>
@@ -110,94 +31,60 @@
   <a href="#skills">Skills</a>
   <a href="#projects">Projects</a>
   <a href="#resume">Resume</a>
-  <a href="#publications">Publications</a>
+  <a href="publications.html">Publications</a>
   <a href="#contact">Contact</a>
 </nav>
 
-<section id="about">
+<section id="about" data-aos="fade-up">
   <h2>About Me</h2>
-  <p>I am a Research Associate at <strong>Bioprinting Laboratories Inc.</strong>, working on <em>3D bioprinting platforms, human organoid culture, and perfusion-based assays</em> for predictive drug discovery and NAMs-aligned research.</p>
-  <p>My expertise lies in <strong>hydrogel optimization, spheroid/organoid culture, and high-throughput assay development</strong>. I work closely on NIH-funded projects to advance standardized organoid models for safety assessment.</p>
-  <p>Passionate about bridging <strong>biotech innovation with translational impact</strong>, I focus on reproducibility, scalability, and human relevance in drug testing.</p>
+  <p>I am a Research Associate at <strong>Bioprinting Laboratories Inc.</strong>, contributing to <em>drug discovery, disease modelling, and advanced in vitro models</em> for predictive toxicology and translational research.</p>
+  <p>My work focuses on reproducible human-relevant models, hydrogel optimization, and high-throughput assay development.</p>
 </section>
 
-<section id="skills">
+<section id="skills" data-aos="fade-up">
   <h2>Top Skills</h2>
-  <div class="skill-bar">
-    <div class="skill-bar-label">3D Bioprinting</div>
-    <div class="bar"><div class="bar-fill" style="width:95%"></div></div>
-  </div>
-  <div class="skill-bar">
-    <div class="skill-bar-label">Organoid & Spheroid Culture</div>
-    <div class="bar"><div class="bar-fill" style="width:92%"></div></div>
-  </div>
-  <div class="skill-bar">
-    <div class="skill-bar-label">Hydrogel Engineering</div>
-    <div class="bar"><div class="bar-fill" style="width:90%"></div></div>
-  </div>
+  <ul class="compact">
+    <li>3D cell culture & organoids</li>
+    <li>Hydrogel engineering (alginate–gelatin)</li>
+    <li>Assay development, HTS compatibility</li>
+    <li>Image analysis (ImageJ), GraphPad Prism</li>
+  </ul>
 </section>
 
-<section id="projects">
+<section id="projects" data-aos="fade-up">
   <h2>Highlighted Projects</h2>
-  <div class="card">
-    <h3>Standardized Liver Organoids for Drug Screening</h3>
-    <p>Developed reproducible liver organoids on pillar/perfusion plates for toxicity and efficacy testing under NIH-funded SOM Center initiative.</p>
-  </div>
-  <div class="card">
-    <h3>Hydrogel Optimization for Spheroid Transfer</h3>
-    <p>Optimized alginate-gelatin formulations and transfer workflows, achieving high spheroid survival and uniformity in perfusion assays.</p>
-  </div>
-  <div class="card">
-    <h3>Immune–Cancer Co-culture Assays</h3>
-    <p>Designed dynamic perfusion-based workflows to evaluate immune–tumor interactions for hepatocellular carcinoma drug testing.</p>
-  </div>
+  <p style="text-align:center;">See detailed write-ups on the <a href="projects.html">Projects page →</a></p>
 </section>
 
-<section id="resume">
+<section id="resume" data-aos="fade-up">
   <h2>Resume</h2>
-  <div style="text-align: center; margin: 1rem 0;">
-    <a href="MANAV_VANGA_Resume.pdf" download" download style="background-color: #f6c343; color: #0f172a; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold;">
-      ⬇ Download CV
-    </a>
-  </div>
+  <p style="text-align:center;">
+    <a class="btn" href="MANAV_VANGA_Resume.pdf" download>⬇ Download CV</a>
+  </p>
 </section>
 
-<section id="publications" style="padding: 60px 20px;">
-  <h2>Publications</h2>
-  <div style="max-width: 900px; margin: auto;">
-    <p>Visit my <a href="https://scholar.google.com/citations?user=t73IBpwAAAAJ&hl=en" target="_blank">Google Scholar Profile</a> for the complete list of my publications.</p>
-  </div>
-</section>
-
-<section id="contact">
+<section id="contact" data-aos="fade-up">
   <h2>Contact</h2>
-  <div style="text-align:center; margin: 1rem 0;">
-    <a href="mailto:manav.vanga@example.com" style="background-color: #1a1a1a; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold;">
-      📧 Email Me
-    </a>
-  </div>
-  <div style="text-align:center; margin-top: 20px;">
-    <a href="https://www.linkedin.com/in/manavvanga" target="_blank">🔗 LinkedIn</a>
-  </div>
+  <p style="text-align:center;">Reach out via Email or LinkedIn below.</p>
 </section>
+
+<footer>
+  <a class="icon-btn" href="mailto:manav.vanga@example.com" title="Email"><img src="https://img.icons8.com/ios-filled/28/ffffff/new-post.png" alt=""></a>
+  <a class="icon-btn" href="https://www.linkedin.com/in/manavvanga" target="_blank" title="LinkedIn"><img src="https://img.icons8.com/ios-filled/28/ffffff/linkedin.png" alt=""></a>
+  <a class="icon-btn" href="https://github.com/ManavVanga" target="_blank" title="GitHub"><img src="https://img.icons8.com/ios-filled/28/ffffff/github.png" alt=""></a>
+  <p style="margin-top:12px;">© 2025 Manav Vanga</p>
+</footer>
 
 <script>
-const typingElement = document.getElementById("typing");
-const words = ["Research Associate", "3D Bioprinting", "Organoid Development", "NAMs-aligned Research"];
-let i = 0, j = 0, isDeleting = false;
-function type() {
-  const current = words[i];
-  typingElement.innerHTML = current.substring(0, j);
-  if (!isDeleting) {
-    if (j < current.length) { j++; }
-    else { setTimeout(() => { isDeleting = true; type(); }, 1500); return; }
-  } else {
-    if (j > 0) { j--; }
-    else { isDeleting = false; i = (i + 1) % words.length; }
-  }
-  setTimeout(type, isDeleting ? 60 : 120);
-}
-type();
+const typingElement=document.getElementById("typing");
+const words=["Research Associate","Drug Discovery","Disease Modelling","In Vitro Models"];
+let i=0,j=0,isDel=false;
+(function type(){
+  const cur=words[i]; typingElement.textContent=cur.substring(0,j);
+  if(!isDel){ j<cur.length?j++:(isDel=true,setTimeout(type,1500)); }
+  else { j>0?j--:(isDel=false,i=(i+1)%words.length); }
+  setTimeout(type,isDel?60:120);
+})();
 </script>
 </body>
 </html>
