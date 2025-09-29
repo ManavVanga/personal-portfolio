@@ -2,32 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Project Details | Manav Vanga</title>
   <link rel="stylesheet" href="assets/css/styles.css">
+
+  <!-- AOS (optional animations) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      AOS.init({
+        once: true,
+        duration: 1200,   // animation lasts 1.2s
+        easing: 'ease-out'
+      });
+    });
+  </script>
 </head>
 <body>
-  <h1>Project Details</h1>
+  <header data-aos="fade-down">
+    <h1>Project Details</h1>
+  </header>
 
-  <section id="liver-organoids">
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html#about">About</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="index.html#resume">Resume</a>
+    <a href="publications.html">Publications</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+
+  <section id="liver-organoids" data-aos="fade-up">
     <h2>Human Liver Organoids for Drug Discovery</h2>
     <p><strong>Jan 2025 – Present</strong> | Bioprinting Laboratories Inc. (NIH SOM Center Project)</p>
     <p>Standardized liver organoid models for toxicity & efficacy screening; workflows compatible with HTS for scalable drug testing.</p>
-    <p><a href="index.html#projects">← Back to Portfolio</a></p>
   </section>
 
-  <section id="hydrogel">
+  <section id="hydrogel" data-aos="fade-up">
     <h2>Hydrogel Optimization for Disease Modelling</h2>
     <p><strong>2024 – 2025</strong> | Bioprinting Laboratories Inc.</p>
     <p>Optimized alginate–gelatin systems for robust spheroid transfer and organoid encapsulation; >85% survival during transfer.</p>
   </section>
 
-  <section id="immune-assays">
+  <section id="immune-assays" data-aos="fade-up">
     <h2>Immune–Cancer Co-culture In Vitro Models</h2>
     <p><strong>2024 – 2025</strong> | Bioprinting Laboratories Inc.</p>
     <p>Perfusion-based immune–tumor co-culture to study checkpoint inhibitors/targeted therapies; quantitative IC50 evaluation.</p>
   </section>
 
-  <section id="perfusion-workflow">
+  <section id="perfusion-workflow" data-aos="fade-up">
     <h2>Perfusion Plate Workflow for Translational Research</h2>
     <p><strong>2023 – 2024</strong> | University of North Texas / Bioprinting Labs</p>
     <p>Long-term organoid viability with dynamic media perfusion; reproducibility across cell lines and HTS compatibility.</p>
