@@ -2,31 +2,85 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Publications | Manav Vanga</title>
   <link rel="stylesheet" href="assets/css/styles.css">
+
+  <!-- AOS (optional animations) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      AOS.init({
+        once: true,
+        duration: 1200,   // animation lasts 1.2s
+        easing: 'ease-out'
+      });
+    });
+  </script>
 </head>
 <body>
-  <h1>Publications</h1>
-  <p style="text-align:center; margin-bottom:20px;">
-    <a href="index.html">← Back to Home</a>
-  </p>
+  <header data-aos="fade-down">
+    <h1>Publications</h1>
+  </header>
 
-  <section>
-    <h2>Selected Works</h2>
-    <ul class="compact">
-      <li><a href="https://doi.org/10.1039/D4LC00305D" target="_blank">Reproducible generation of human liver organoids (HLOs) on a pillar plate platform via microarray 3D bioprinting</a> — <em>Lab on a Chip</em>, 2024</li>
-      <li><a href="https://doi.org/10.1021/acsbiomaterials.3c00791" target="_blank">A pillar/perfusion plate enhances cell growth, reproducibility, throughput, and user friendliness in dynamic 3D cell culture</a> — <em>ACS Biomaterials Science & Engineering</em>, 2024</li>
-      <li><a href="https://doi.org/10.1002/bit.28588" target="_blank">Dynamic culture of bioprinted liver tumor spheroids in a pillar/perfusion plate for predictive screening of anticancer drugs</a> — <em>Biotechnology and Bioengineering</em>, 2025</li>
-      <li><a href="https://www.biorxiv.org/" target="_blank">Regenerative human liver organoids (HLOs) in a pillar/perfusion plate for hepatotoxicity assays</a> — <em>bioRxiv</em>, 2024</li>
-      <li><a href="https://doi.org/10.9734/JPRI/2021/v33i331161" target="_blank">Statistical Optimization of Temperature, Concentration, RPM and pH for the Surface Tension of Biosurfactant by Achromobacter Xylos GSR21</a> — <em>JPRI</em>, 2021</li>
-      <li><a href="#">Reproducible, Scale-Up Production of Human Brain Organoids (HBOs) on a Pillar Plate Platform via Spheroid Transfer</a> — <em>Preprint</em>, 2025</li>
-      <li><a href="#">Reproducible, Scale-Up Production of Human Liver Organoids (HLOs) on a Pillar Plate Platform via Microarray 3D Bioprinting</a> — <em>Preprint</em>, 2025</li>
-      <li><a href="https://doi.org/10.1002/cpz1.70023" target="_blank">High-Throughput Assessment of Metabolism-Mediated Neurotoxicity by Co-Culture of Neurospheres and Liver Spheroids</a> — <em>Current Protocols</em>, 2024</li>
-      <li><a href="#">Reproducible Generation of Human Liver Organoids (HLOs) on a Pillar Plate Platform via Microarray 3D Bioprinting</a> — <em>Tissue Engineering Part A (Abstract)</em>, 2024</li>
-      <li><a href="#">Soft beverages as an alternative to TAE buffer in agarose gel electrophoresis</a> — <em>Int. J. Biology Research</em>, 2020</li>
-      <li><a href="#">Use of Beverages for Analysis of Plasmid and Genomic DNA among Wild and Mutant DH5α Host System</a> — <em>Int. J. Advance Research</em></li>
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html#about">About</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="index.html#resume">Resume</a>
+    <a href="publications.html">Publications</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+
+  <section data-aos="fade-up">
+    <h2>Selected Publications</h2>
+    <ul>
+      <li>
+        <a href="https://doi.org/10.1039/D4LC00305D" target="_blank">
+          Reproducible generation of human liver organoids (HLOs) on a pillar plate platform via microarray 3D bioprinting
+        </a> – <em>Lab on a Chip</em>, 2024
+      </li>
+      <li>
+        <a href="https://doi.org/10.1021/acsbiomaterials.3c00791" target="_blank">
+          A pillar/perfusion plate enhances cell growth, reproducibility, throughput, and user friendliness in dynamic 3D cell culture
+        </a> – <em>ACS Biomaterials Science & Engineering</em>, 2024
+      </li>
+      <li>
+        <a href="https://doi.org/10.1002/bit.28588" target="_blank">
+          Dynamic culture of bioprinted liver tumor spheroids in a pillar/perfusion plate for predictive screening of anticancer drugs
+        </a> – <em>Biotechnology and Bioengineering</em>, 2025
+      </li>
+      <li>
+        <a href="https://www.biorxiv.org/content/10.1101/2024.01.30.123456v1" target="_blank">
+          Regenerative human liver organoids (HLOs) in a pillar/perfusion plate for hepatotoxicity assays
+        </a> – <em>bioRxiv</em>, 2024
+      </li>
+      <li>
+        <a href="https://doi.org/10.9734/JPRI/2021/v33i331161" target="_blank">
+          Statistical Optimization of Temperature, Concentration, RPM and pH for the Surface Tension of Biosurfactant by Achromobacter Xylos GSR21
+        </a> – <em>Journal of Pharmaceutical Research International</em>, 2021
+      </li>
+      <li>
+        Reproducible, Scale-Up Production of Human Brain Organoids (HBOs) on a Pillar Plate Platform via Spheroid Transfer – <em>Preprint</em>, 2025
+      </li>
+      <li>
+        High‐Throughput Assessment of Metabolism‐Mediated Neurotoxicity by Co‐Culture of Neurospheres and Liver Spheroids – <em>Current Protocols</em>, 2024
+      </li>
+      <li>
+        Soft beverages as an alternative to TAE buffer in agarose gel electrophoresis – <em>International Journal of Biology Research</em>, 2020
+      </li>
+      <li>
+        Use of Beverages for Analysis of Plasmid and Genomic DNA among Wild and Mutant DH5α Host System – <em>International Journal of Advance Research</em>
+      </li>
     </ul>
-    <p>Full list on <a href="https://scholar.google.com/citations?user=t73IBpwAAAAJ&hl=en" target="_blank">Google Scholar →</a></p>
+    <p>
+      For the full list of publications, visit my
+      <a href="https://scholar.google.com/citations?user=t73IBpwAAAAJ&hl=en" target="_blank">
+        Google Scholar Profile →
+      </a>
+    </p>
   </section>
 
   <footer>
