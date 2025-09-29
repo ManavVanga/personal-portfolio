@@ -9,15 +9,15 @@
 
   <link rel="stylesheet" href="assets/css/styles.css">
 
-  <!-- AOS (optional animations) -->
+  <!-- AOS (scroll animations) -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       AOS.init({
         once: true,
-        duration: 1200,   // animation lasts 1.2s
-        easing: 'ease-out' // smoother transition
+        duration: 1200,   // smooth fade-ins
+        easing: 'ease-out'
       });
     });
   </script>
@@ -83,15 +83,34 @@
   <p style="margin-top:12px;">© 2025 Manav Vanga</p>
 </footer>
 
+<!-- Typing Effect -->
 <script>
-const typingElement=document.getElementById("typing");
-const words=["Research Associate","Drug Discovery","Disease Modelling","In Vitro Models"];
-let i=0,j=0,isDel=false;
+const typingElement = document.getElementById("typing");
+const words = ["Research Associate","Drug Discovery","Disease Modelling","In Vitro Models"];
+let i = 0, j = 0, isDel = false;
+
 (function type(){
-  const cur=words[i]; typingElement.textContent=cur.substring(0,j);
-  if(!isDel){ j<cur.length?j++:(isDel=true,setTimeout(type,1500)); }
-  else { j>0?j--:(isDel=false,i=(i+1)%words.length); }
-  setTimeout(type,isDel?60:120);
+  const cur = words[i];
+  typingElement.textContent = cur.substring(0, j);
+
+  if (!isDel) { 
+    if (j < cur.length) {
+      j++;
+    } else {
+      isDel = true;
+      setTimeout(type, 2500); // pause before deleting (2.5s)
+      return;
+    }
+  } else { 
+    if (j > 0) {
+      j--;
+    } else {
+      isDel = false;
+      i = (i + 1) % words.length;
+    }
+  }
+
+  setTimeout(type, isDel ? 120 : 180); // slower typing & deleting
 })();
 </script>
 </body>
